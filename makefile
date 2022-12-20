@@ -53,6 +53,12 @@ HUGO_CMD := docker run -it --rm $(NAMEFLAGS) $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLA
 shell:
 	$(HUGO_CMD) shell
 
+install:
+	$(HUGO_CMD) bundle install
+
+thumbs:
+	mogrify  -format jpg -path gallery/thumbs -thumbnail x250 gallery/*.jpg
+
 build : 
 	$(HUGO_CMD) jekyll build
 
