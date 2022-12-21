@@ -1,17 +1,23 @@
-<!DOCTYPE html>
-<!--
-
-    @author Sankarsan Kampa (https://sankarsankampa.com)
-    A Jekyll theme by Elastic Designs (https://git.io/elastic).
-
--->
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="{{ site.language }}">
 <head>
-  {% include head.html %}
+    <title>{{ site.title }}</title>
+    {% include head.html %}
 </head>
-<body class="is-loading-0 is-loading-1 is-loading-2">
-  {{ content }}
+<body class="loading">
+        
+    <div id="wrapper">
 
-  {% include scripts.html %}
+    {% include header.html %}
+    
+    {{ content }}
+
+    {% include footer.html %}
+
+    </div>
+
+    {% include scripts.html %}
+
 </body>
 </html>
+

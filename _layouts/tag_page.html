@@ -1,0 +1,15 @@
+---
+layout: default
+---
+<div id="main">
+
+    <div id="album-header">
+        <h1>{{ page.tag }}</h1>
+        {% assign tag = page.tag | slugify %}
+        {% assign quote = site.data.quotes[tag] %}
+        <blockquote author="{{ quote.author }}">“{{ quote.text }}”</blockquote>
+    </div>
+    
+    {% include grid.html %}
+    
+</div>

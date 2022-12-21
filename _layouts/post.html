@@ -1,0 +1,58 @@
+---
+layout: default
+---
+   
+<div id="main">
+    <div class="mySlides">
+        <div class="img-container">
+            <img src="{{ site.gallery_dir }}/{{  page.image }}" class="" >
+            
+            <!-- <div class="overlay top right">
+                <div class="fabutton cursor" onclick="closeModal()"><i class="fa fa-times-circle"></i></div>
+            </div>
+            <div class="overlay middle left">
+                
+                <a class="icon fabutton" onclick="plusSlides(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+            </div>
+            <div class="overlay middle right">
+                <a class="icon fabutton" onclick="plusSlides(1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            </div> -->
+            <div class="overlay top center fullwidth">
+                <div class="title"><h3>{{ page.title }}</h3></div>
+            </div>
+            <div class="overlay bottom right">
+                
+                <a href="#" onclick="copyToClipboard('{{ page.url | relative_url }}');" class="icon fabutton" title="Click to copy a sharable link to this picture">
+                    <i class="fa fa-link"></i>
+                </a>
+                <a href="{{ site.gallery_dir }}/{{  page.image }}" class="icon fabutton" target="_blank" title="Download in full resolution">
+                    <i class="fa fa-download"></i>
+                </a>
+            </div>
+
+        </div>
+            <div class="exif">
+                            <div id="tag-cloud">         
+                            </div>
+                        
+                            <ul>
+                                <li><i class="fa fa-camera fa-fw"></i>{{ page.camera }}</li>
+                                <li><i class="fa fa-search-plus fa-fw"></i>{{ page.lens }} </li>
+                                <li><i class="fa fa-hourglass-half fa-fw"></i>{{ page.exposure }}</li>
+                                <li><i class="fa fa-empire fa-fw"></i> {{ page.fstop }} </li>
+                                <li><i class="fa fa-film fa-fw"></i>{{ page.iso }}</li>
+                                <li><i class="fa fa-calendar fa-fw"></i>{{ page.date }}</li>
+                                <li><i class="fa fa-copyright fa-fw"></i>Copyright souissi.eu 2020</li>
+                                <li><i class="fa fa-tag fa-fw"></i>{{ page | tags }}</li>
+                            </ul>  
+                       
+                
+                
+            </div>
+    </div>
+    
+</div>
+
+
+
+

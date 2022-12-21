@@ -1,0 +1,26 @@
+<header id="header">
+    {% assign current = page.url %}
+    {% assign elements = current | split: "/" %}
+    <h1>
+        <a href="/"><img src="/assets/images/favicon.png" />
+            <strong>
+                {% if elements.size > 2  %}
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                {% else %}
+                    {{ site.title }}
+                {% endif %}
+            </strong>
+        </a>
+        <span>
+            <strong class="not-clickable">
+                {% for element in elements %}
+                    {% if element != "" %}
+                        / {{ element }}
+                    {% endif %}
+                {% endfor %}
+            </strong>    
+        </span>
+
+    </h1>
+    {% include navigation.html %}
+</header>

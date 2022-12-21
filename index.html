@@ -2,10 +2,14 @@
 layout: default
 ---
 
+<div id="welcome">
+  <img src="/assets/images/logo.png">
+</div>
+
 <!-- Main -->
 <div id="main">
   <!-- Header -->
-  <header id="header">
+  <!-- <header id="header">
     <h1>{{ site.header }}</h1>
     <h2>{{ site.subheader }}</h2>
     <p>{{ site.bio }}</p>
@@ -28,24 +32,34 @@ layout: default
         {% endif %}
       </ul>
     {% endif %}
-  </header>
+  </header> -->
 
   <!-- Thumbnail -->
-  <section id="thumbnails">
-    {% assign gallery = site.static_files | where: "image", true %}
-    {% for image in gallery %}
-      <article>
-        <a class="thumbnail" href="{{ site.gallery_dir }}/{{ image.name }}" data-position="{{ site.thumbnail_position }}"><img src="{{ site.gallery_dir }}/{{ image.name }}" alt="{{ image.basename }}" /></a>
-        <h2>{{ image.basename | replace: "_", " " }}</h2>
-      </article>
+  {% include grid.html %}
+  <section id="tags">
+    <h1>Tag Cloud</h1>
+    {% capture tags %}
+      {% for tag in site.tags %}
+        {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}____
+      {% endfor %}
+    {% endcapture %}
+    {% assign sortedtags = tags | split:'____' | sort %}
+    
+    {% for tag in sortedtags reversed %}
+      {% assign tagitems = tag | split: '#' %}
+      <span class="site-tag">
+         <a href="/tag/{{ tagitems[1] | slugify }}/" style="font-size: {{ tagitems[2] |  times: 4 | plus: 80  }}%">
+             {{ tagitems[1] }} ({{ tagitems[2] }})
+         </a>
+     </span>
+     {% endfor %}
+
+    <!-- <ul id="tagscloud"> 
+    {% for tag in sortedtags reversed %}
+        {% assign tagitems = tag | split: '#' %}
+        <li><a href="/tag/{{ tagitems[1] | downcase }}.html">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li>
     {% endfor %}
+  </ul> -->
   </section>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <ul class="copyright">
-      <li>{{ site.copyright }}</li>
-      <li>Powered by <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://github.com/ElasticDesigns/jekyll-lens">Jekyll Lens</a></li>
-    </ul>
-  </footer>
 </div>
