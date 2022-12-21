@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "site": "test-souissi-eu",
+    "public": "_site",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
