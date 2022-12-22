@@ -1,6 +1,11 @@
 ### Jekyll ###
 _site/
 .sass-cache/
+.jekyll-cache/
+gallery/
+_posts/
 .jekyll-metadata
 vendor/bundle
 Gemfile.lock
+**/.DS_Store
+.firebase/hosting.X3NpdGU.cache
