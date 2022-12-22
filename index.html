@@ -8,36 +8,13 @@ layout: default
 
 <!-- Main -->
 <div id="main">
-  <!-- Header -->
-  <!-- <header id="header">
-    <h1>{{ site.header }}</h1>
-    <h2>{{ site.subheader }}</h2>
-    <p>{{ site.bio }}</p>
-    {% if site.social %}
-      <ul class="icons">
-        {% if site.social.twitter_username and site.social.twitter_username != "" %}
-          <li><a href="https://twitter.com/{{ site.social.twitter_username }}" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-        {% endif %}
-        {% if site.social.facebook_username and site.social.facebook_username != "" %}
-          <li><a href="https://www.facebook.com/{{ site.social.facebook_username }}" class="icon fa-facebook-official"><span class="label">Facebook</span></a></li>
-        {% endif %}
-        {% if site.social.instagram_username and site.social.instagram_username != "" %}
-          <li><a href="https://instagram.com/{{ site.social.instagram_username }}" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-        {% endif %}
-        {% if site.social.github_username and site.social.github_username != "" %}
-          <li><a href="https://github.com/{{ site.social.github_username }}" class="icon fa-github"><span class="label">Github</span></a></li>
-        {% endif %}
-        {% if site.social.email and site.social.email != "" %}
-          <li><a href="mailto:{{ site.social.email }}" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-        {% endif %}
-      </ul>
-    {% endif %}
-  </header> -->
 
   <!-- Thumbnail -->
-  {% include grid.html %}
+  {% assign samples= site.posts | sample: 10 %}
+  {% include grid.html posts=samples %}
+
   <section id="tags">
-    <h1>Tag Cloud</h1>
+    
     {% capture tags %}
       {% for tag in site.tags %}
         {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}____
@@ -45,6 +22,8 @@ layout: default
     {% endcapture %}
     {% assign sortedtags = tags | split:'____' | sort %}
     
+     
+    <h1>Tag Cloud</h1>
     {% for tag in sortedtags reversed %}
       {% assign tagitems = tag | split: '#' %}
       <span class="site-tag">

@@ -1,6 +1,6 @@
 <section id="thumbnails">
     <ul id="og-grid" class="og-grid">
-      {% for post in page.posts %}
+      {% for post in include.posts %}
       <li>
         <article class="thumb">
           <a href="{{ post.url }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
