@@ -86,8 +86,17 @@ email: "nizar.souissi@gmail.com"
 
 ## Gallery Configuration ##
 # If you modify this, also modify the `default.scope.path` key below.
-gallery_dir: "/gallery"
 thumb_dir: "/gallery/thumbs"
+small_pics_dir: "/gallery/small"
+large_pics_dir: "/gallery/large"
+
+## Make sure these values are also the same in the makefile
+thumb_height: 250
+thumb_quality: 75
+small_width: 600
+full_width: 1200
+full_height: 900
+    
 
 # Any valid value of "background-position" CSS attribute.
 image_position: "left center"
@@ -125,6 +134,7 @@ defaults:
 exclude:
   - vendor
   - Gemfile
+  - OriginalPics
 
 
 # Tags pages 

@@ -56,8 +56,17 @@ shell:
 install:
 	$(HUGO_CMD) bundle install
 
-thumbs:
-	mogrify  -format jpg -path gallery/thumbs -thumbnail x250 gallery/*.jpg
+thumb_height := 250
+thumb_quality := 75
+small_width := 600
+full_width := 1200
+full_height := 900
+    
+
+pics:
+	mogrify  -format jpg -path gallery/thumbs -thumbnail x250 OriginalPics/*.jpg
+	mogrify  -format jpg -path gallery/small -resize 600x OriginalPics/*.jpg
+	mogrify  -format jpg -path gallery/large -resize 600x OriginalPics/*.jpg
 
 build : 
 	$(HUGO_CMD) jekyll build

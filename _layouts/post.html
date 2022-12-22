@@ -5,7 +5,10 @@ layout: default
 <div id="main">
     <div class="mySlides">
         <div class="img-container">
-            <img src="{{ site.gallery_dir }}/{{  page.image }}" class="" >
+            <img src="{{ site.large_pics_dir }}/{{  page.image }}" class="" 
+            data-src="{{ site.large_pics_dir }}/{{  page.image }}" 
+            data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
+            srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
             
             <!-- <div class="overlay top right">
                 <div class="fabutton cursor" onclick="closeModal()"><i class="fa fa-times-circle"></i></div>
@@ -16,7 +19,7 @@ layout: default
             </div>
             <div class="overlay middle right">
                 <a class="icon fabutton" onclick="plusSlides(1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            </div> -->
+            </div> 
             <div class="overlay top center fullwidth">
                 <div class="title"><h3>{{ page.title }}</h3></div>
             </div>
@@ -28,11 +31,11 @@ layout: default
                 <a href="{{ site.gallery_dir }}/{{  page.image }}" class="icon fabutton" target="_blank" title="Download in full resolution">
                     <i class="fa fa-download"></i>
                 </a>
-            </div>
+            </div> -->
 
         </div>
             <div class="exif">
-                <div class=""><h3>{{ page.title }}</h3></div>
+                <div class="title"><h3>{{ page.title }}</h3></div>
                 <ul>
                     <li><i class="fa fa-camera fa-fw"></i>{{ page.camera }}</li>
                     <li><i class="fa fa-search-plus fa-fw"></i>{{ page.lens }} </li>
