@@ -9,30 +9,51 @@ layout: default
 <!-- Main -->
 <div id="main">
 
-  <!-- Thumbnail -->
-  {% assign samples= site.posts | sample: 10 %}
-  {% include grid.html posts=samples %}
+  <!-- <h1>Checkout these random photos</h1>
+  {% assign samples= site.posts | sample: 4 %}
+  {% include grid.html posts=samples %} -->
 
+  <section id="categories">
+    <h1>Categories</h1>
+
+    <section id="thumbnails">
+      <ul id="og-grid" class="og-grid">
+
+    {% for category in site.data.quotes %}
+      {% assign categoryName = category[0] %}
+      {% assign tagPosts = site.tags[categoryName] %}
+      {% assign post = tagPosts | sample  %}
+        <li>
+          <article class="thumb">
+            <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
+
+              <img src="{{ site.thumb_dir }}/{{ post.image }}" alt="{{ post.image }}" height="250px"  />
+            </a>
+              <h2>{{ categoryName }}</h2>
+          </article>
+        </li>
+    {% endfor %}
+
+  </section>
+  
   <section id="tags">
-    
     {% capture tags %}
       {% for tag in site.tags %}
         {{ tag[1].size | plus: 1000 }}#{{ tag[0] }}#{{ tag[1].size }}____
       {% endfor %}
     {% endcapture %}
-    {% assign sortedtags = tags | split:'____' | sort %}
+    {% assign sortedtags = tags | split:'____' %}
     
      
-    <h1>Tag Cloud</h1>
-    {% for tag in sortedtags reversed %}
+    <h1>or browse all my tags...</h1>
+    <ul class="cloud" role="navigation" aria-label="Webdev tag cloud" data-show-value>
+      {% for tag in sortedtags reversed %}
       {% assign tagitems = tag | split: '#' %}
-      <span class="site-tag">
-         <a href="/tag/{{ tagitems[1] | slugify }}/" style="font-size: {{ tagitems[2] |  times: 4 | plus: 80  }}%">
-             {{ tagitems[1] }} ({{ tagitems[2] }})
-         </a>
-     </span>
+      <li><a href="/tag/{{ tagitems[1] | slugify }}/" data-weight="{{ tagitems[2] }}">{{ tagitems[1] }}</a></li>         
      {% endfor %}
 
+    </ul>
+    
     <!-- <ul id="tagscloud"> 
     {% for tag in sortedtags reversed %}
         {% assign tagitems = tag | split: '#' %}
