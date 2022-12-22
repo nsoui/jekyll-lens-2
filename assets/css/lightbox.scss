@@ -128,12 +128,18 @@ q {
 
   .title {
     padding: 1em;
+    
   }
 
   .exif{
     margin: 1em;
     border-left: solid 1px;
     padding: 0 0 0 1em;
+
+    .title {
+      text-align: left;
+      padding: 0em 1em 2em 1.5em;
+    }
 
     
     i {
