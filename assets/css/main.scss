@@ -1072,7 +1072,7 @@ body {
 
   transition: transform 1s ease;
 
-  background: $dark-bg-color;
+  background: linear-gradient( $dark-bg-color , change-color($dark-bg-color, $alpha: 0.9), change-color($dark-bg-color, $alpha: .1));
   height: 4em;
   line-height: 4em;
   padding: 0 1.5em;
