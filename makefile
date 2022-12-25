@@ -3,6 +3,7 @@
 PUID       := $(shell id -u)
 PGID       := $(shell id -g)# gid 100(users) usually pre exists
 CURDIR     := $(shell pwd)
+HOME       := $(shell echo $$HOME)
 
 
 # IMAGETAG  := krismorte/hugo-docker
@@ -44,7 +45,10 @@ distclean: clean
 	rm -rf resources/_gen/*
 
 clean:
-	rm -rf public/*
+	echo deleting files below _posts and Original Pics
+	rm -rf _posts/*
+	rm -rf OriginalPics/*
+	for fff in {thumbs,small,large}; do echo deleting files below $$fff; rm -rf gallery/$$fff/*; done 
 
 rebuild: distclean build
 
@@ -61,12 +65,15 @@ thumb_quality := 75
 small_width := 600
 full_width := 1200
 full_height := 900
-    
 
-pics:
+
+
+pics: clean
+	processpictures.py  -jekyll -keep-original-name -dest OriginalPics -paths $(HOME)/pics/Social/*.jpg 
 	mogrify  -format jpg -path gallery/thumbs -thumbnail x250 OriginalPics/*.jpg
-	mogrify  -format jpg -path gallery/small -resize 600x OriginalPics/*.jpg
-	mogrify  -format jpg -path gallery/large -resize 600x OriginalPics/*.jpg
+	mogrify  -format jpg -path gallery/small -resize 600 OriginalPics/*.jpg
+	mogrify  -format jpg -path gallery/large -resize 1200 OriginalPics/*.jpg
+	mv -f OriginalPics/*.md _posts/
 
 build : 
 	$(HUGO_CMD) jekyll build
