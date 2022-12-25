@@ -4,7 +4,7 @@ Night-Photography:
 Black-and-White:
   text: “Taking an image, freezing a moment, reveals how rich reality truly is.”
   author: "Anonymous"
-Events:
+Travel:
   text: “There is one thing the photograph must contain, the humanity of the moment.”
   author: "Robert Frank"
 Landscape:
@@ -19,4 +19,6 @@ Street-Photography:
 Night-Photography:
   text: “Show a little faith. There is magic in the night.”
   author: "Bruce Springsteen"
-
+Cityscape:
+  text: “Show a little faith. There is magic in the night.”
+  author: "Bruce Springsteen"
