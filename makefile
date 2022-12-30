@@ -76,7 +76,7 @@ LARGE_DIR := gallery/large
 
 
 filtered_pics: 
-	processpictures.py  -jekyll -skip-newer-targets -keep-original-name -dest $(FILTERED_DIR) -paths $(HOME)/Pictures/Social/*.jpg 
+	processpictures.py  -jekyll -skip-newer-targets -overwrite -keep-original-name -dest $(FILTERED_DIR) -paths $(HOME)/Pictures/Social/*.jpg 
 	mv -f OriginalPics/*.md _posts/
 
 SRC_PICS := $(wildcard $(FILTERED_DIR)/*.jpg)
@@ -86,13 +86,13 @@ LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.jpg,$(SRC_PICS))
 
 MOGRIFY_CMD := mogrify  -format jpg -quality 100
 
-$(THUMBS_DIR)/%.jpg: OriginalPics/%.jpg
+$(THUMBS_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(THUMBS_DIR) -thumbnail x250 $<
 
-$(SMALL_DIR)/%.jpg: OriginalPics/%.jpg
+$(SMALL_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(SMALL_DIR) -resize 600 $<
 
-$(LARGE_DIR)/%.jpg: OriginalPics/%.jpg
+$(LARGE_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(LARGE_DIR) -resize 1200 $<
 
 
