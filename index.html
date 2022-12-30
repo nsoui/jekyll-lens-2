@@ -1,13 +1,18 @@
 ---
 layout: default
+hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg
 ---
-
-<div id="welcome">
-  <img src="/assets/images/logo.png">
-</div>
 
 <!-- Main -->
 <div id="main">
+  
+<section class="hero">
+  <div id="welcome" class="hero-inner">
+    <img src="/assets/images/logo.png"/>
+  </div>
+  
+</section>
+
 
   <!-- <h1>Checkout these random photos</h1>
   {% assign samples= site.posts | sample: 4 %}
@@ -16,7 +21,7 @@ layout: default
   <section id="categories">
     <h1>Categories</h1>
 
-    <section id="thumbnails">
+    
       <ul id="og-grid" class="og-grid">
 
     {% for category in site.data.quotes %}
