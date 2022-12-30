@@ -71,17 +71,16 @@ contact:
   headline: "Get in touch"
   buttonText: "Send"
   resetText: "Reset"
-  form:
-    name:
-      text: "Name *"
-      warning: "Please, enter your name"
-    email:
-      text: "Email *"
-      warning: "Please, enter your email."
-    message:
-      text: "Message *"
-      warning: "Please, enter your message"
-    
+  name:
+    text: "Name *"
+    warning: "Please, enter your name"
+  email:
+    text: "Email *"
+    warning: "Please, enter your email."
+  message:
+    text: "Message *"
+    warning: "Please, enter your message"
+  
 email: "nizar.souissi@gmail.com"    
 
 ## Gallery Configuration ##
@@ -89,6 +88,7 @@ email: "nizar.souissi@gmail.com"
 thumb_dir: "/gallery/thumbs"
 small_pics_dir: "/gallery/small"
 large_pics_dir: "/gallery/large"
+
 
 ## Make sure these values are also the same in the makefile
 thumb_height: 250
@@ -123,6 +123,8 @@ defaults:
   - scope:
       path: ""
       type: "posts"
+      output: true
+      permalink: /:collection/:name
     values:
       layout: "post"
   - scope:
