@@ -131,32 +131,40 @@ q {
     
   }
 
-  .exif{
-    margin: 1em;
-    border-left: solid 1px;
-    padding: 0 0 0 1em;
-
-    .title {
-      text-align: left;
-      padding: 0em 1em 2em 1.5em;
-    }
-
-    
-    i {
-      margin-right: 1em;
-    }
-    
-    ul {
-      // font-family: 'Roboto Mono', monospace;
-      list-style: none;
-      text-align: left;
-      margin: 0;
-      
-      
-
-    }
+  .material-symbols-outlined {
+    margin-right: 1em;
   }
 
+  .img-description {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+
+    .img-title{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+    }
+    .exif{
+      margin: 1em;
+      border-left: solid 1px;
+      padding: 0 0 0 1em;
+  
+      .title {
+        text-align: left;
+        padding: 0em 1em 2em 1.5em;
+      }   
+      ul {
+        // font-family: 'Roboto Mono', monospace;
+        list-style: none;
+        text-align: left;
+        margin: 0;
+      }
+    }
+
+  }
+
+  
   img {
     // max-height: calc(75vh - 4em );
     max-height: calc(100vh - 6em - 110px);

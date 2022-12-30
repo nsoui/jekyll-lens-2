@@ -190,8 +190,8 @@ body {
 }
 
 body {
-  // background: $bg-color;
-  background-image: radial-gradient(ellipse at center right, $bg-color2 0%, $dark-bg-color 60%);
+  background: $bg-color;
+  // background-image: radial-gradient(ellipse at center right, $bg-color2 0%, $dark-bg-color 60%);
 
 }
 body.loading *,
@@ -1072,7 +1072,7 @@ body {
 
   transition: transform 1s ease;
 
-  background: linear-gradient( $dark-bg-color , change-color($dark-bg-color, $alpha: 0.9), change-color($dark-bg-color, $alpha: .1));
+  background: linear-gradient( $bg-color , change-color($bg-color, $alpha: 0.9), change-color($bg-color, $alpha: .1));
   height: 4em;
   line-height: 4em;
   padding: 0 1.5em;
@@ -1142,6 +1142,28 @@ body.loading #header {
   margin-right: 1em;
 }
 
+.hero {
+    /* Sizing */
+    width: 100vw;
+    height: 50vh;
+    margin: 0;
+    /* Flexbox stuff */
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    
+    /* Text styles */
+    text-align: center;
+    color: white;
+    
+    /* Background styles */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.1)), url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 @media screen and (max-width: 980px) {
   body {
     padding: 4em 0 0 0;
@@ -1188,39 +1210,41 @@ body.loading #header {
       top: 0;
       width: 100%;
     }
+    .image {
+      -webkit-tap-highlight-color: transparent;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 0;
+      width: 100%;
+    }
+    .link {
+      -webkit-tap-highlight-color: transparent;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 0;
+      width: 100%;
+    }
+    h2 {
+      pointer-events: none;
+      bottom: 0.5em;
+      font-size: 0.8em;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      z-index: 1;
+      background-color: #0007;
+      color: $inverted-text-color;
+      width: 100%;
+      padding: 10px 0 10px 0;
+    }
+    p {
+      display: none;
+    }
   }
 }
-#main .thumb > .image {
-  -webkit-tap-highlight-color: transparent;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 0;
-  width: 100%;
-}
-#main .thumb > .link {
-  -webkit-tap-highlight-color: transparent;
-  background-position: 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: 0;
-  width: 100%;
-}
-#main .thumb > h2 {
-  pointer-events: none;
-  bottom: 0.5em;
-  font-size: 0.8em;
-  left: 0;
-  margin: 0;
-  position: absolute;
-  z-index: 1;
-  background-color: #0007;
-  width: 100%;
-  padding: 10px 0 10px 0;
-}
-#main .thumb > p {
-  display: none;
-}
+
 #main:after {
   pointer-events: none;
 

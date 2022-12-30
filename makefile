@@ -66,14 +66,41 @@ small_width := 600
 full_width := 1200
 full_height := 900
 
+# Picture handling
+
+FILTERED_DIR := OriginalPics
+THUMBS_DIR := gallery/thumbs
+SMALL_DIR := gallery/small
+LARGE_DIR := gallery/large
 
 
-pics: clean
-	processpictures.py  -jekyll -keep-original-name -dest OriginalPics -paths $(HOME)/pics/Social/*.jpg 
-	mogrify  -format jpg -path gallery/thumbs -thumbnail x250 OriginalPics/*.jpg
-	mogrify  -format jpg -path gallery/small -resize 600 OriginalPics/*.jpg
-	mogrify  -format jpg -path gallery/large -resize 1200 OriginalPics/*.jpg
+
+filtered_pics: 
+	processpictures.py  -jekyll -skip-newer-targets -keep-original-name -dest $(FILTERED_DIR) -paths $(HOME)/Pictures/Social/*.jpg 
 	mv -f OriginalPics/*.md _posts/
+
+SRC_PICS := $(wildcard $(FILTERED_DIR)/*.jpg)
+THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.jpg,$(SRC_PICS))
+SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.jpg,$(SRC_PICS))
+LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.jpg,$(SRC_PICS))
+
+MOGRIFY_CMD := mogrify  -format jpg -quality 100
+
+$(THUMBS_DIR)/%.jpg: OriginalPics/%.jpg
+	$(MOGRIFY_CMD) -path $(THUMBS_DIR) -thumbnail x250 $<
+
+$(SMALL_DIR)/%.jpg: OriginalPics/%.jpg
+	$(MOGRIFY_CMD) -path $(SMALL_DIR) -resize 600 $<
+
+$(LARGE_DIR)/%.jpg: OriginalPics/%.jpg
+	$(MOGRIFY_CMD) -path $(LARGE_DIR) -resize 1200 $<
+
+
+
+
+pics: filtered_pics $(THUMBS) $(SMALLPICS) $(LARGEPICS)
+	
+	
 
 build : 
 	$(HUGO_CMD) jekyll build
