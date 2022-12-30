@@ -10,7 +10,8 @@ layout: default
             data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
             srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
             
-            <!-- <div class="overlay top right">
+            {% if false %}
+            <div class="overlay top right">
                 <div class="fabutton cursor" onclick="closeModal()"><i class="fa fa-times-circle"></i></div>
             </div>
             <div class="overlay middle left">
@@ -31,25 +32,32 @@ layout: default
                 <a href="{{ site.gallery_dir }}/{{  page.image }}" class="icon fabutton" target="_blank" title="Download in full resolution">
                     <i class="fa fa-download"></i>
                 </a>
-            </div> -->
+            </div>
+
+            {% endif %}
 
         </div>
-            <div class="exif">
+        <div class="img-description">
+            <div class="img-title">
                 <div class="title"><h3>{{ page.title }}</h3></div>
-                <ul>
-                    <li><i class="fa fa-camera fa-fw"></i>{{ page.camera }}</li>
-                    <li><i class="fa fa-search-plus fa-fw"></i>{{ page.lens }} </li>
-                    <li><i class="fa fa-hourglass-half fa-fw"></i>{{ page.exposure }}</li>
-                    <li><i class="fa fa-empire fa-fw"></i> {{ page.fstop }} </li>
-                    <li><i class="fa fa-film fa-fw"></i>{{ page.iso }}</li>
-                    <li><i class="fa fa-calendar fa-fw"></i>{{ page.date }}</li>
-                    <li><i class="fa fa-copyright fa-fw"></i>Copyright souissi.eu 2020</li>
-                    <li><i class="fa fa-tag fa-fw"></i>{{ page | tags }}</li>
-                </ul>  
-                       
-                
-                
+                <div><span class="material-symbols-outlined">loyalty</span>{{ page | tags }}</div>
             </div>
+            <div class="exif">
+                <ul>
+                    <li><span class="material-symbols-outlined">photo_camera</span>{{ page.camera }}</li>
+                    <li><span class="material-symbols-outlined">lens</span>{{ page.lens }}</li>
+                    <li><span class="material-symbols-outlined">straighten</span>{{ page.focallength }} mm</li>
+                    <li><span class="material-symbols-outlined">shutter_speed</span>{{ page.exposure }} s</li>
+                    <li><span class="material-symbols-outlined">camera</span>f/{{ page.fstop }} </li>
+                    <li><span class="material-symbols-outlined">camera_roll</span>iso {{ page.iso }}</li>
+                    
+                    <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</li> -->
+                    <li><span class="material-symbols-outlined">copyright</span>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
+                    
+                </ul>  
+            </div>
+        </div>
+            
     </div>
     
 </div>
