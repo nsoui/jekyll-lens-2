@@ -1,7 +1,4 @@
-Night-Photography:
-  text: “Photography is the story I fail to put into words.”
-  author: "Destin Sparks" 
-Black-and-White:
+Black and White:
   text: “Taking an image, freezing a moment, reveals how rich reality truly is.”
   author: "Anonymous"
 Travel:
@@ -13,12 +10,15 @@ Landscape:
 People:
   text: “A thing that you see in my pictures is that I was not afraid to fall in love with these people.”
   author: "Annie Leibovitz"
-Street-Photography:
+Portrait:
+  text: “A thing that you see in my pictures is that I was not afraid to fall in love with these people.”
+  author: "Annie Leibovitz"
+Street Photography:
   text: “You don’t take a photograph. You ask quietly to borrow it.”
   author: "Unknown"
-Night-Photography:
+Night Photography:
   text: “Show a little faith. There is magic in the night.”
   author: "Bruce Springsteen"
-Cityscape:
-  text: “Show a little faith. There is magic in the night.”
-  author: "Bruce Springsteen"
+Minimalist Photography:
+  text: “Photography is the story I fail to put into words.”
+  author: "Destin Sparks" 
