@@ -1,6 +1,11 @@
 ---
 ---
 
+@import "theme";
+
+* {
+	box-sizing: border-box;
+  }
 
 .og-grid {
 	list-style: none;
@@ -16,7 +21,8 @@
 		display: inline-block;
 		margin: 10px 5px 0 5px;
 		vertical-align: top;
-		max-height: 250px;
+		max-height: $thumb-height;
+		padding-left: unset;
 	}
 
 }
@@ -24,9 +30,9 @@
 @media screen and (max-width: 980px) {
 	
 	.og-grid li {
-		max-height: unset;
-		width: 100%;
-		padding-left: unset;
+		// max-height: unset;
+		max-width: 90%;
+		// padding-left: unset;
 	}	
 }
 
@@ -38,6 +44,7 @@
 	display: block;
 	position: relative;
 	width: 100%;
+	max-height: $thumb-height;
 }
 
 .og-grid li.og-expanded > a::after {
@@ -227,4 +234,76 @@
 	.og-fullimg { display: none; }
 	.og-details { float: none; width: 100%; }
 	
+}
+
+
+$max-img-width: 900px;
+$max-img-height: 600px;
+
+img {
+  max-width: 100%;
+  vertical-align: top;
+  max-height: $max-img-height;
+}
+
+#gallery-section {
+	padding-top: unset;
+}
+
+.gallery {
+  	display: flex;
+	justify-content: center;
+	margin: 10px auto;
+	max-width: $max-img-width;
+	position: relative;
+	padding-top: $max-img-height/$max-img-width * 100%;
+
+	@media screen and (min-width: $max-img-width){
+		padding-top: $max-img-height;
+	}
+	
+	&__img {
+		position: absolute;
+		left: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+		
+		margin-bottom: auto;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		
+		img {
+			flex-shrink: 0;
+			min-width: 100%;
+			min-height: 100%
+		}
+
+	}
+
+	&__thumb {
+	padding-top: 6px;
+	margin: 6px;
+	display: block;
+	}
+
+	&__selector {
+		position: absolute;
+		opacity: 0;
+		visibility: hidden;
+
+		&:checked {
+			+ .gallery__img {
+			opacity: 1;
+			}
+			~ .gallery__thumb > img {
+			box-shadow: 0 0 0 3px #0be2f6;;
+			}
+		}
+	}
 }

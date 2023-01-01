@@ -9,6 +9,10 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
 <section class="hero">
   <div id="welcome" class="hero-inner">
     <img src="/assets/images/logo.png"/>
+    <div class="buttons">
+      <a href="#categories" class="button">Categories</a>
+      <a href="#tags" class="button">Tags</a>
+    </div>
   </div>
   
 </section>
@@ -18,8 +22,8 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
   {% assign samples= site.posts | sample: 4 %}
   {% include grid.html posts=samples %} -->
 
-  <section id="categories">
-    <h1>Categories</h1>
+  <section id="categories" class="">
+    <h1>Select a Category...</h1>
 
     
       <ul id="og-grid" class="og-grid">
@@ -32,7 +36,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
           <article class="thumb">
             <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
 
-              <img src="{{ site.thumb_dir }}/{{ post.image }}" alt="{{ post.image }}" height="250px"  />
+              <img src="{{ site.thumb_dir }}/{{ post.image }}" alt="{{ post.image }}"  />
             </a>
               <h2>{{ categoryName }}</h2>
           </article>
@@ -50,7 +54,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
     {% assign sortedtags = tags | split:'____' %}
     
      
-    <h1>or browse all my tags...</h1>
+    <h1>or browse by tags...</h1>
     <ul class="cloud" role="navigation" aria-label="Webdev tag cloud" data-show-value>
       {% for tag in sortedtags reversed %}
       {% assign tagitems = tag | split: '#' %}
@@ -58,13 +62,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
      {% endfor %}
 
     </ul>
-    
-    <!-- <ul id="tagscloud"> 
-    {% for tag in sortedtags reversed %}
-        {% assign tagitems = tag | split: '#' %}
-        <li><a href="/tag/{{ tagitems[1] | downcase }}.html">{{ tagitems[1] }} ({{ tagitems[2] }})</a></li>
-    {% endfor %}
-  </ul> -->
+
   </section>
 
 </div>
