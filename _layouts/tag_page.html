@@ -3,15 +3,19 @@ layout: default
 ---
 <div id="main">
 
-    <div id="album-header">
-        <h1>{{ page.tag }}</h1>
-        {% assign tag = page.tag %}
-        {% assign quote = site.data.quotes[tag] %}
-        {% if quote != nil %}
-            <blockquote author="{{ quote.author }}">“{{ quote.text }}”</blockquote>
-        {% endif %}
-    </div>
-    
-    {% include grid.html posts=page.posts %}
+    <section>    
+        <div id="album-header">
+            <h1>{{ page.tag }}</h1>
+            {% assign tag = page.tag %}
+            {% assign quote = site.data.quotes[tag] %}
+            {% if quote != nil %}
+                <blockquote author="{{ quote.author }}">“{{ quote.text }}”</blockquote>
+            {% endif %}
+        </div>
+    </section>
+    {% include gallery.html posts=page.posts %}
+    {% if false %}
+        {% include grid.html posts=page.posts %}
+    {% endif %}
     
 </div>
