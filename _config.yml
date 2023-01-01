@@ -55,16 +55,6 @@ social:
     url: "www.linkedin.com/in/nizarsouissi"
     icon: "fa-linkedin"
 
-nav:
-  -
-    label: "Contact"
-    url: "#contact"
-    icon: "fa-envelope"
-  -
-    label: "About"
-    url: "#about"
-    icon: "fa-info-circle"
-  
 
 contact:
   realEmail: "nizar@souissi.eu"
@@ -81,7 +71,10 @@ contact:
     text: "Message *"
     warning: "Please, enter your message"
   
-email: "nizar.souissi@gmail.com"    
+# This is used as the link of the contact form. 
+# Your Formspree.io link will look like this
+# "https://formspree.io/f/{{ email }}"
+email: "nizar@souissi.eu"
 
 ## Gallery Configuration ##
 # If you modify this, also modify the `default.scope.path` key below.

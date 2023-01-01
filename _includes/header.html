@@ -1,26 +1,36 @@
 <header id="header">
     {% assign current = page.url %}
     {% assign elements = current | split: "/" %}
-    <h1>
-        <a href="/"><img src="/assets/images/favicon.png" />
-            <strong>
-                {% if elements.size > 2  %}
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                {% else %}
-                    {{ site.title }}
-                {% endif %}
-            </strong>
-        </a>
-        <span>
-            <strong class="not-clickable">
-                {% for element in elements %}
-                    {% if element != "" %}
-                        / {{ element }}
-                    {% endif %}
-                {% endfor %}
-            </strong>    
-        </span>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">
+                    <img src="/assets/images/favicon.png" />
+                    <span class="text">{{ site.title }}</span>
+                    <!-- {% if elements.size > 2  %}
+                        <span class="material-symbols-outlined">home</span>
+                    {% else %}
+                        <span class="text">{{ site.title }}</span>
+                    {% endif %} -->
+                </a>
+            </li>
+            {% if false and elements.size > 1  %}
+            <li>
+                <span class="text not-clickable">> {{ elements[-1] }}</span>
+            </li>
+            {% endif %}
 
-    </h1>
-    {% include navigation.html %}
+        </ul>
+    </nav>
+    <nav>
+		<ul>
+		{% for link in site.data.nav.top %}
+			<li>
+				<a href="{{ link.url }}">
+					<span class="material-symbols-outlined">{{ link.icon }}</span><span class="text">{{ link.label }}</span>
+				</a>
+			</li>
+		{% endfor %}
+		</ul>
+	</nav>
 </header>

@@ -1,0 +1,13 @@
+top:
+  -
+    label: "Home"
+    url: "/"
+    icon: "home"
+  -
+    label: "Contact"
+    url: "#contact"
+    icon: "mail"
+  -
+    label: "About"
+    url: "#about"
+    icon: "contacts"
