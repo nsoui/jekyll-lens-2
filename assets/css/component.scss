@@ -266,13 +266,13 @@ img {
 		position: absolute;
 		left: 0;
 		top: 0;
-		left: 0;
 		right: 0;
 		
 		margin-bottom: auto;
 		margin-left: auto;
 		margin-right: auto;
 		opacity: 0;
+		z-index: 100;
 		transition: opacity 0.3s ease-in-out;
 		display: flex;
 		justify-content: center;
@@ -300,6 +300,7 @@ img {
 		&:checked {
 			+ .gallery__img {
 			opacity: 1;
+			z-index: 150;
 			}
 			~ .gallery__thumb > img {
 			box-shadow: 0 0 0 3px #0be2f6;;
