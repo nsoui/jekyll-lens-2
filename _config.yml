@@ -17,21 +17,13 @@ header: "Nizar's Photography"
 subheader: "Elastic Designs"
 # A description/bio of the website.
 
+# Facebook App ID
+facebook_app_id: "702222463690498"
 
 footer: 
   headline: "Photography is more than a hobby"
   text: "I am hobbyist photographer with love for open source software, passion for disruptive technologies (DLT, IoT, AI) and special care for sustainable development. I live between Tunisia, Germany, and Dubai. Photography is a fulfillment for me. I chase smiles, the most rewarding ones, those of camera-shy people when they discover how cute in reality they are. I shoot just for satisfaction, not professionally. If you like my work, get in touch ;-)"
   social_headline: "Follow me"
-
-# links:
-#   -
-#     name: "Contact"
-#     url: "#contact"
-#     icon: "fa-envelope"
-#   -
-#     name: "About"
-#     url: "#about"
-#     icon: "fa-info-circle"
 
 social:
   -
@@ -114,10 +106,11 @@ defaults:
     values:
       layout: "author"
   - scope:
-      path: ""
+      path: "_posts"
       type: "posts"
       output: true
-      permalink: /:collection/:name
+      # permalink: /:collection/:name
+      permalink: images/:title/
     values:
       layout: "post"
   - scope:
