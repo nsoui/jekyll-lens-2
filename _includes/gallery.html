@@ -3,7 +3,16 @@
   {% for post in include.posts %}
   <div class="gallery__item">
     <input type="radio" id="img-{{ forloop.index }}" checked name="gallery" class="gallery__selector"/>
-    <a class="gallery__img" href="{{ post.url }}"><img src="{{ site.large_pics_dir }}/{{ post.image }}" alt=""/></a>
+    <div class="gallery__img" href="{{ post.url }}">
+      <img src="{{ site.large_pics_dir }}/{{ post.image }}" alt="{{ post.title }}"/>
+      <div class="overlay">
+        <a href="{{ post.url }}">
+        <div class="button">
+          <span class="material-symbols-outlined">info</span>More Info
+        </div>
+      </a>
+      </div>
+    </div>
     <label for="img-{{ forloop.index }}" class="gallery__thumb"><img src="{{ site.thumb_dir }}/{{ post.image }}" alt=""/></label>
   </div>
   {% endfor %}
