@@ -1,0 +1,85 @@
+<section  id="gallery3" class="gallery-section">
+  <div id="myModal" class="modal" style="display: flex;">
+    <div id="miniatures">
+        <div class="table" id="miniaturestable">
+          {% for post in include.posts %}
+            <div class="column item card">
+              <img class="demo contain" 
+              src="{{ site.thumb_dir }}/{{ post.image }}" 
+              data-src="{{ site.thumb_dir }}/{{ post.image }}" 
+              data-srcset="{{ site.thumb_dir }}/{{ post.image }}" 
+              srcset="{{ site.thumb_dir }}/{{ post.image }}"
+              onclick="currentSlide( {{ forloop.index }} );" 
+              alt="{{ post.title }} ({{ forloop.index }} / {{ include.posts.size }})" 
+              >
+            </div>
+          {% endfor %}
+        </div>
+        
+    </div>
+    <div class="modal-content">
+      <div class="overlay top left right flex flex-row flex-space-between">
+        <div>
+          <a class="button" onclick="document.getElementById('miniaturestable').scrollLeft -= 400;">&#10094;&#10094;</a>
+          <a class="button" onclick="plusSlides(-1)">&#10094;</a>
+        </div>
+        <h2 id="caption"></h2>
+        <div>
+          <a class="button" onclick="plusSlides(1)">&#10095;</a>
+          <a class="button" onclick="document.getElementById('miniaturestable').scrollLeft += 400;">&#10095;&#10095;</a>
+        </div>
+      </div>
+      
+      {% for post in include.posts %}
+        <div class="mySlides" style="display: none;">
+            <div class="img-container">
+                <img src="{{ site.large_pics_dir }}/{{ post.image }}" 
+                class="" 
+                data-srcset="{{ site.thumb_dir }}/{{ post.image }} 342w,  600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w" 
+                srcset="{{ site.thumb_dir }}/{{ post.image }} 342w, {{ site.small_pics_dir }}/{{ post.image }} 600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w">
+              
+                    
+                <div class="overlay bottom right button">
+                    <a href="{{ post.url }}" title="More information">
+                      <span class="material-symbols-outlined">info</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      let top = document.getElementById("myModal").offsetTop; //Getting Y of target element
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+      
+      window.scrollTo(0, top); 
+    }
+    </script>
+</section>

@@ -1,0 +1,72 @@
+<section  id="gallery2" class="gallery-section">
+
+  <!-- Container for the image gallery -->
+  <div class="container">
+    {% for post in include.posts %}
+    <!-- Full-width images with number text -->
+    <div class="mySlides">
+      <div class="top-overlay">
+        <div class="numbertext">{{ forloop.index }} / {{ include.posts.size }}</div>
+        <div class="info-link">
+          <a href="{{ post.url }}">
+            <div class="button">
+              <span class="material-symbols-outlined">info</span>More Info
+            </div>
+          </a>  
+        </div>
+      </div>
+      
+      <img src="{{ site.large_pics_dir }}/{{ post.image }}" style="width:100%">
+    </div>
+    {% endfor %}
+
+    <!-- Next and previous buttons -->
+
+
+    <!-- Image text -->
+    <div class="caption-container">
+      <a class="prev button" onclick="plusSlides(-1)">&#10094;</a>
+      <h2 id="caption"></h2>
+      <a class="next button" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Thumbnail images -->
+    <div class="row">
+      {% for post in include.posts %}
+      <div class="column">
+        <img class="demo cursor" src="{{ site.thumb_dir }}/{{ post.image }}"  onclick="currentSlide({{ forloop.index }})" alt="{{ post.title }}">
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    }
+    </script>
+</section>

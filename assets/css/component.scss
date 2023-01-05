@@ -27,10 +27,10 @@ q {
     font-family: Georgia, serif;
     font-size: 9em;
     font-weight: 700;
-    opacity: .2;
+    opacity: .4;
     text-shadow: none;
-    z-index: -300;
-    color: $input-color;
+    // z-index: -300;
+    color: $inverted-text-color;
   }
 
   &:after {
@@ -38,7 +38,7 @@ q {
     display: block;
     text-align: right;
     font-size: 0.875em;
-    color: $input-color;
+    color: $inverted-text-color;
   }
 }
 
@@ -277,22 +277,54 @@ q {
 }
 
 
-$max-img-width: 900px;
-$max-img-height: 600px;
+.overlay {
+	position: absolute;
+	z-index: 100;
+	transition: .3s ease;
+	background-color: #000c;
+	width: 100%;
 
-img {
-  max-width: 100%;
-  vertical-align: top;
-  max-height: $max-img-height;
-}
+	&.top {
+	  top: 0;
+	}
+	&.right {
+	  right: 0;
+	}
+	&.bottom {
+	  bottom: 0;
+	}
+	&.left {
+	  left:0;
+	}
+	&.center {
+	  left: 50%;
+	  transform: translate(0%, -50%);
+	  -ms-transform: translate(0%, -50%);
+	}
+  
+	&.middle {
+	  top: 50%;
+	  transform: translate(0%, -50%);
+	  -ms-transform: translate(0%, -50%);
+	}
 
-#gallery-section {
+	h2, h3 {
+		margin: 0;
+		z-index: 1;
+		color: $inverted-text-color;
+		padding: 10px 0 10px 0;
+	}
+  }
+
+
+
+.gallery-section {
 	padding-top: unset;
 }
 
 
 /* Hide the slides by default */
-.mySlides {
+#singleImagePage {
 	text-align: center;
 	display: flex;
 	flex-flow: row wrap;
@@ -318,7 +350,8 @@ img {
 	  .img-title{
 		display: flex;
 		flex-flow: column nowrap;
-		justify-content: flex-start;
+		justify-content: space-between ;
+		margin: 1em;
 	  }
 	  .exif{
 		margin: 1em;
@@ -340,96 +373,375 @@ img {
 	}
 }
   
+#gallery1 {
+	$max-img-width: 900px;
+	$max-img-height: 600px;
 
-.gallery {
-  	display: flex;
-	justify-content: center;
-	margin: 10px auto;
-	max-width: $max-img-width;
-	position: relative;
-	padding-top: $max-img-height/$max-img-width * 100%;
-
-	@media screen and (min-width: $max-img-width){
-		padding-top: $max-img-height;
+	img {
+	max-width: 100%;
+	vertical-align: top;
+	max-height: $max-img-height;
 	}
-	
-	&__img {
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		
-		margin-bottom: auto;
-		margin-left: auto;
-		margin-right: auto;
-		opacity: 0;
-		z-index: 100;
-		transition: opacity 0.3s ease-in-out;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		
-		img {
-			flex-shrink: 0;
-			min-width: 100%;
-			min-height: 100%
-		}
 
-		.overlay {
-			position: absolute;
+	.gallery {
+		display: flex;
+	  justify-content: center;
+	  margin: 10px auto;
+	  max-width: $max-img-width;
+	  position: relative;
+	  // padding-top: $max-img-height/$max-img-width * 100%;
+  
+	  // @media screen and (min-width: $max-img-width){
+	  // 	padding-top: $max-img-height;
+	  // }
+	  
+	  &__img {
+		  position: absolute;
+		  left: 0;
+		  top: 10vh;
+		  right: 0;
+  
+		  height: 70vh;
+		  max-width: 100%;
+		  
+		  margin-bottom: auto;
+		  margin-left: auto;
+		  margin-right: auto;
+		  opacity: 0;
+		  z-index: 100;
+		  transition: opacity 0.3s ease-in-out;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  
+		  img {
+			  flex-shrink: 0;
+			  max-width: 100%;
+			  max-height: 100%
+		  }
+  
+		  .overlay {
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  left: 0;
+			  right: 0;
+			  height: 100%;
+			  width: 100%;
+			  opacity: 0;
+			  transition: .3s ease;
+			  background-color: #000c;
+			  
+			  .button {
+				  position: absolute;
+				  top: 50%;
+				  left: 50%;
+				  transform: translate(-50%, -50%);
+				  -ms-transform: translate(-50%, -50%);
+				  
+				  text-decoration: none;
+  
+				  .material-symbols-outlined {
+					  margin-right: .5em;
+				  }
+			  }
+		  }
+		  
+		  &:hover .overlay {
+			  opacity: 1;
+		  }
+  
+	  }
+  
+	  &__thumb {
+	  padding-top: 6px;
+	  margin: 6px;
+	  display: block;
+	  }
+  
+	  &__selector {
+		  position: absolute;
+		  opacity: 0;
+		  visibility: hidden;
+  
+		  &:checked {
+			  + .gallery__img {
+			  opacity: 1;
+			  z-index: 150;
+			  }
+			  ~ .gallery__thumb > img {
+			  box-shadow: 0 0 0 3px $alternative-color;
+			  }
+		  }
+	  }
+  }
+  
+}
+
+
+#gallery2 {
+	$thumbs-height: 150px;
+	$caption-height: 50px;
+	$mainpicture-height: calc(90vh - 350px);
+	* {
+		box-sizing: border-box;
+	  }
+	  
+	  /* Position the image container (needed to position the left and right arrows) */
+	  .container {
+		position: relative;
+		display: flex;
+		flex-flow: column;
+		height: calc(90vh - 150px);
+	  }
+	  
+	  /* Hide the images by default */
+	  .mySlides {
+		display: none;
+		img {
+			max-height: $mainpicture-height;
+			width: auto;
+			object-fit: contain;
+		}
+	  }
+	  
+	  /* Add a pointer when hovering over the thumbnail images */
+	  .cursor {
+		cursor: pointer;
+	  }
+	  
+	  /* Next & previous buttons */
+	  .prev,
+	  .next {
+		cursor: pointer;
+		// position: absolute;
+		// top: 40%;
+		width: auto;
+		// padding: 16px;
+		// margin-top: -50px;
+		// color: white;
+		// font-weight: bold;
+		// font-size: 1em;
+		// border-radius: 0 3px 3px 0;
+		user-select: none;
+		-webkit-user-select: none;
+	  }
+	  
+	  /* Position the "next button" to the right */
+	  .next {
+		// right: 0;
+		border-radius: 3px 0 0 3px;
+	  }
+	  
+	  /* On hover, add a black background color with a little bit see-through */
+	  .prev:hover,
+	  .next:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	  }
+	  
+	  /* Number text (1/3 etc) */
+	  .top-overlay {
+		color: #f2f2f2;
+		// font-size: 12px;
+		padding: 8px 12px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: #000C;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	  }
+	  
+	  /* Container for image text */
+	  .caption-container {
+		text-align: center;
+		background-color: #222;
+		padding: 2px 16px;
+		color: white;
+		height: $caption-height;
+		display: flex;
+		flex-flow: row;
+		justify-content: space-between;
+		align-items: center;
+	  }
+	  
+	  .row{
+		height: 150px;
+		overflow: auto;
+		white-space: nowrap;
+
+		// &:after {
+		// 	content: "";
+		// 	display: table;
+		// 	clear: both;
+		// }
+		}
+	  
+	  /* Six columns side by side */
+	  .column {
+		// float: left;
+		display: inline-block;
+		// width: 16.66%;
+		img{
+			height: $thumbs-height;
+			width:auto;
+		}
+	  }
+	  
+	  /* Add a transparency effect for thumnbail images */
+	  .demo {
+		opacity: 0.6;
+	  }
+	  
+	  .active,
+	  .demo:hover {
+		opacity: 1;
+	  }
+}
+
+#gallery3 {
+	.modal {
+		// display: none;
+		//position: absolute;
+		z-index: 1;
+		// left: 0;
+		// top: 0;
+		width: 100%;
+		height: calc(100vh - 4em);
+		overflow-y: auto ;
+		overflow-x: hidden;
+		// background-color: $dark-bg-color; 
+		flex-flow: column;
+		flex-basis: content;
+		justify-content: flex-start;
+	}
+	  
+	  /* Modal Content */
+	  .modal-content {
+		position: relative;
+		/* background-color: $text-color; */
+		margin: auto;
+		padding: 0;
+		/* width: 90%;
+		max-width: 1200px; */
+		flex-grow: 2;
+		display: flex;
+		flex-flow: column;
+		justify-content: flex-start;
+	  
+	  
+	}
+	  
+	  
+	  
+	  
+	  /* Hide the slides by default */
+	  .mySlides {
+		display: none;
+		text-align: center;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: flex-end;
+		justify-content: center;
+		padding: 0.1em;
+
+		.img-container {
+			position: relative;
 			top: 0;
-			bottom: 0;
 			left: 0;
 			right: 0;
-			height: 100%;
-			width: 100%;
-			opacity: 0;
-			transition: .3s ease;
-			background-color: rgba(197, 197, 197, 0.65);
-			
-			.button {
-				color: white;
-				font-size: 1em;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				-ms-transform: translate(-50%, -50%);
-				text-align: center;
-				padding: 0.25em 0.5em;
-				text-decoration: none;
-
-				.material-symbols-outlined {
-					margin-right: 1em;
-				}
-			}
-		}
+			bottom: 0;
 		
-		&:hover .overlay {
-			opacity: 1;
-		}
-
-	}
-
-	&__thumb {
-	padding-top: 6px;
-	margin: 6px;
-	display: block;
-	}
-
-	&__selector {
-		position: absolute;
-		opacity: 0;
-		visibility: hidden;
-
-		&:checked {
-			+ .gallery__img {
-			opacity: 1;
-			z-index: 150;
-			}
-			~ .gallery__thumb > img {
-			box-shadow: 0 0 0 3px #0be2f6;;
+	  
+			img {
+			// max-height: calc(75vh - 4em );
+			max-height: calc(100vh - 6em - 110px);
+			width: 100%;
 			}
 		}
 	}
 }
+
+
+@media screen and (min-width: 979px) {
+	.table {
+	  display: flex;
+	  border-collapse: collapse;
+	  width: 100%;
+	  // -webkit-overflow-scrolling: touch; 
+	  flex-wrap: nowrap;
+	  overflow-x: hidden;
+	  scroll-behavior: smooth;
+	
+	  .item {
+		flex: 1;
+		flex-grow: 1;
+		img {
+		  display: block;
+		  width: auto;
+		  max-height: 10vh;
+		}
+	  }
+  
+	  .card {
+		flex: 0 0 auto;
+	  } 
+	}
+  }
+  
+
+@media screen and (max-width: 980px) {
+  
+	#miniatures {
+	  display: none;
+	}
+  
+	#album-header {
+	  max-width: 80%;
+	}
+  
+	.row > .column > img{
+	  max-height: 15vh;
+	}
+  
+	#ltb-container {
+	  width: 100%;
+	}
+  
+	.mySlides {
+	  flex-flow: column;
+	  align-items: center;
+	  justify-content: flex-start;
+	}
+  
+	.exif {
+	  padding: 2em 0 2em 0;
+	  width: 100%;
+	  align-self: stretch;
+	  /* background-color: #f3f5f6;
+	  color: #444444; */
+	  i {
+		margin-right: 1em;
+	  }
+	}
+	
+	.mySlides img {
+	  max-height: calc(100vh - 4em - 60px);
+	  max-width: 100%;
+	  object-fit: contain;
+	}
+  }
+  
+  @media (max-aspect-ratio: 5/8) {
+	.row > .column > img{
+	  max-height: 10vh;
+	}
+  }
+  @media (min-aspect-ratio: 5/8) {
+	.row > .column > img{
+	  max-height: 15vh;
+	}
+  }

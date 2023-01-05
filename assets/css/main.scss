@@ -238,8 +238,8 @@ textarea {
 
 a {
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
-  color: $input-color;
+  // border-bottom: dotted 1px;
+  color: $link-button-color;
   text-decoration: none;
 }
 a:hover {
@@ -290,6 +290,7 @@ h6 a {
 
 h1 {
   font-size: 2em;
+  text-align: center;
 }
 
 h2 {
@@ -403,10 +404,11 @@ button,
 
   transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
   background-color: transparent;
-  border: 0;
+  border: 0 !important;
+  border-bottom: none !important;
   border-radius: 0;
-  box-shadow: inset 0 0 0 2px $border-color;
-  color: $strong-text-color !important;
+  box-shadow: inset 0 0 0 2px $link-button-color;
+  color: $link-button-color ;
   cursor: pointer;
   display: inline-block;
   font-size: 0.9em;
@@ -1218,7 +1220,7 @@ body.loading #header {
   justify-content: center;
   flex-wrap: wrap;
   -webkit-tap-highlight-color: transparent;
-  margin-top: -4em;
+  //margin-top: -4em;
   // background-color: $bg-color2;
 
   .thumb {
@@ -1260,19 +1262,19 @@ body.loading #header {
       border: 0;
       width: 100%;
     }
-    h2 {
-      pointer-events: none;
-      bottom: 0.5em;
-      font-size: 0.8em;
-      left: 0;
-      margin: 0;
-      position: absolute;
-      z-index: 1;
-      background-color: #0007;
-      color: $inverted-text-color;
-      width: 100%;
-      padding: 10px 0 10px 0;
-    }
+    // h2 {
+    //   pointer-events: none;
+    //   bottom: 0.5em;
+    //   font-size: 0.8em;
+    //   left: 0;
+    //   margin: 0;
+    //   position: absolute;
+    //   z-index: 1;
+    //   background-color: #000c;
+    //   color: $inverted-text-color;
+    //   width: 100%;
+    //   padding: 10px 0 10px 0;
+    // }
     p {
       display: none;
     }
@@ -1416,6 +1418,19 @@ body.loading #main .thumb {
   margin-right: 12px;
 }
 
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  &-row {
+    flex-flow: row;
+  }
+  &-space-between {
+    justify-content: space-between;
+  }
+}
 
 ul.cloud {
   list-style: none;
@@ -1500,6 +1515,9 @@ ul.cloud[data-show-value] a::after {
   content: " (" attr(data-weight) ")";
   font-size: 0.75rem;
 }
+
+
+
 
 
 
