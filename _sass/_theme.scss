@@ -1,6 +1,9 @@
 
 $thumb-height: 200px;
 
+
+// Theme 1
+
 $text-color: #a0a0a1 !default;
 $strong-text-color: #ffffff;
 $dark-bg-color: #242629;
@@ -19,7 +22,7 @@ $hover-color: #15a5c7;
 $input-color: #7293a0;
 
 
-
+// Theme 2 
 $text-color: #2e2e2e;
 $strong-text-color: #1d1d1d;
 $inverted-text-color: #90aab5;
@@ -38,4 +41,25 @@ $button-active-bg: #5a7985;
 $hover-color: #15a5c7;
 $input-color: #7293a0;
 
+
+//  Theme 3
+// Forest: #11201e | Teal: #154042 | Mint: #d5e9dd | Pink: #decec8 | Cloud: #d4d6d5
+
+$text-color: #11201e;
+$strong-text-color: #154042;
+$inverted-text-color: #7f6a63;
+$dark-bg-color: #d4d6d5;
+$bg-color: #FFFFFF;
+$bg-color2: #f5f5f7;
+$light-bg-color: #7293a0;
+$link-button-color: #7f6a63;
+$border-color: #154042;
+$alternative-color: #154042;
+
+// Inputs
+$placeholder-color: #d5e9dd;
+$button-bg: #d5e9dd;
+$button-active-bg: #154042;
+$hover-color: #154042;
+$input-color: #d4d6d5;
 
