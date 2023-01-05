@@ -308,12 +308,15 @@ q {
 	  -ms-transform: translate(0%, -50%);
 	}
 
-	h2, h3 {
+	h1, h2, h3, h4, h5, h6 {
 		margin: 0;
 		z-index: 1;
 		color: $inverted-text-color;
 		padding: 10px 0 10px 0;
 	}
+	// h3 {
+	// 	font-size: 0.8rem;
+	// }
   }
 
 
@@ -623,7 +626,7 @@ q {
 	  .modal-content {
 		position: relative;
 		/* background-color: $text-color; */
-		margin: auto;
+		// margin: auto;
 		padding: 0;
 		/* width: 90%;
 		max-width: 1200px; */
@@ -659,7 +662,7 @@ q {
 			img {
 			// max-height: calc(75vh - 4em );
 			max-height: calc(100vh - 6em - 110px);
-			width: 100%;
+			// width: 100%;
 			}
 		}
 	}
@@ -695,7 +698,7 @@ q {
 
 @media screen and (max-width: 980px) {
   
-	#miniatures {
+	.hide-on-small-screen {
 	  display: none;
 	}
   

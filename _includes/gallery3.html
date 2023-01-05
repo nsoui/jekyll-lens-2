@@ -1,6 +1,6 @@
 <section  id="gallery3" class="gallery-section">
   <div id="myModal" class="modal" style="display: flex;">
-    <div id="miniatures">
+    <div id="miniatures" class="hide-on-small-screen">
         <div class="table" id="miniaturestable">
           {% for post in include.posts %}
             <div class="column item card">
@@ -20,13 +20,13 @@
     <div class="modal-content">
       <div class="overlay top left right flex flex-row flex-space-between">
         <div>
-          <a class="button" onclick="document.getElementById('miniaturestable').scrollLeft -= 400;">&#10094;&#10094;</a>
+          <a class="button hide-on-small-screen" onclick="document.getElementById('miniaturestable').scrollLeft -= 400;">&#10094;&#10094;</a>
           <a class="button" onclick="plusSlides(-1)">&#10094;</a>
         </div>
-        <h2 id="caption"></h2>
+        <h4 id="caption"></h4>
         <div>
           <a class="button" onclick="plusSlides(1)">&#10095;</a>
-          <a class="button" onclick="document.getElementById('miniaturestable').scrollLeft += 400;">&#10095;&#10095;</a>
+          <a class="button hide-on-small-screen" onclick="document.getElementById('miniaturestable').scrollLeft += 400;">&#10095;&#10095;</a>
         </div>
       </div>
       
