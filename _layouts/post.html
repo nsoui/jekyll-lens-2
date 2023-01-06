@@ -5,37 +5,15 @@ layout: default
 <div id="main">
     <section id="singleImagePage">
         <div class="img-container">
-            <img src="{{ site.large_pics_dir }}/{{  page.image }}" class="" 
-            data-src="{{ site.large_pics_dir }}/{{  page.image }}" 
+            <img src="" class="lazy" 
+            data-src="" 
             data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
             srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
-            
-            {% if false %}
-            <div class="overlay top right">
-                <div class="fabutton cursor" onclick="closeModal()"><i class="fa fa-times-circle"></i></div>
+            <div class="overlay top bottom left only-on-hover button">
+                <script>
+                    document.write('<a href="' + document.referrer + '" title="Previous">&#10094;</a>');
+                </script>
             </div>
-            <div class="overlay middle left">
-                
-                <a class="icon fabutton" onclick="plusSlides(-1)"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
-            </div>
-            <div class="overlay middle right">
-                <a class="icon fabutton" onclick="plusSlides(1)"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
-            </div> 
-            <div class="overlay top center fullwidth">
-                <div class="title"><h3>{{ page.title }}</h3></div>
-            </div>
-            <div class="overlay bottom right">
-                
-                <a href="#" onclick="copyToClipboard('{{ page.url | relative_url }}');" class="icon fabutton" title="Click to copy a sharable link to this picture">
-                    <i class="fa fa-link"></i>
-                </a>
-                <a href="{{ site.gallery_dir }}/{{  page.image }}" class="icon fabutton" target="_blank" title="Download in full resolution">
-                    <i class="fa fa-download"></i>
-                </a>
-            </div>
-
-            {% endif %}
-
         </div>
         <div class="img-description">
             <div class="img-title">
