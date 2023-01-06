@@ -1,7 +1,7 @@
 ---
 ---
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Lato&family=Old+Standard+TT:ital@0;1&family=PT+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato");
 
 @import "theme";
 
@@ -121,7 +121,7 @@ section {
   width: 90%;
   //max-width: 900px;
   // background-color: $bg-color;
-  padding-top: 3em;
+  // padding-top: 3rem;
 }
 
 #tags {
@@ -216,25 +216,32 @@ body.resizing *:after {
 }
 
 /* Type */
+html,
 body,
 input,
 select,
 textarea {
   color: $text-color;
-  font-family: "Lato", "Montserrat", "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 15pt;
+  font-family: "Lato", sans-serif;
+  font-size: 14pt;
   font-weight: 300;
-  letter-spacing: 0.025em;
+  letter-spacing: 0.025rem;
   line-height: 1.65;
-}
-@media screen and (max-width: 1680px) {
-  body,
-  input,
-  select,
-  textarea {
-    font-size: 11pt;
+  @media screen and (max-width: 1680px) {
+    font-size: 12pt;
+  }
+
+  @media screen and (max-width: 736px) {
+    font-size: 10pt;
+    
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 8pt;
   }
 }
+
+
 
 a {
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
@@ -262,7 +269,7 @@ i {
 }
 
 p {
-  margin: 0 0 2em 0;
+  margin: 0 0 2rem 0;
 }
 
 h1,
@@ -273,7 +280,7 @@ h5,
 h6 {
   color: $strong-text-color;
   font-weight: 300;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.1rem;
   line-height: 1.5;
   margin: 0 0 0 0;
   text-transform: uppercase;
@@ -289,97 +296,77 @@ h6 a {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 2rem;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.1rem;
 }
 
 h4 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 h5 {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 
 h6 {
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
-@media screen and (max-width: 736px) {
-  h1 {
-    font-size: 1.25em;
-  }
-  h2 {
-    font-size: 1em;
-  }
-  h3 {
-    font-size: 0.9em;
-  }
-  h4 {
-    font-size: 0.8em;
-  }
-  h5 {
-    font-size: 0.7em;
-  }
-  h6 {
-    font-size: 0.7em;
-  }
-}
 sub {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   position: relative;
-  top: 0.5em;
+  top: 0.5rem;
 }
 
 sup {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   position: relative;
-  top: -0.5em;
+  top: -0.5rem;
 }
 
 blockquote {
   border-left: 4px $border-color;
   font-style: italic;
-  margin: 0 0 2em 0;
-  padding: 0.5em 0 0.5em 2em;
+  margin: 0 0 2rem 0;
+  padding: 0.5rem 0 0.5rem 2rem;
 }
 
 code {
   background: $bg-color;
   border: solid 1px $border-color;
   font-family: "Courier New", monospace;
-  font-size: 0.9em;
-  margin: 0 0.25em;
-  padding: 0.25em 0.65em;
+  font-size: 0.9rem;
+  margin: 0 0.25rem;
+  padding: 0.25rem 0.65rem;
 }
 
 pre {
   font-family: "Courier New", monospace;
-  font-size: 0.9em;
-  margin: 0 0 2em 0;
+  font-size: 0.9rem;
+  margin: 0 0 2rem 0;
 }
 pre code {
   display: block;
   line-height: 1.75;
-  padding: 1em 1.5em;
+  padding: 1rem 1.5rem;
   overflow-x: auto;
 }
 
 hr {
   border: 0;
   border-bottom: solid 1px $border-color;
-  margin: 2em 0;
+  margin: 2rem 0;
 }
 hr.major {
-  margin: 3em 0;
+  margin: 3rem 0;
 }
 
 .align-left {
@@ -411,12 +398,12 @@ button,
   color: $link-button-color ;
   cursor: pointer;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 300;
-  height: 3.0555555556em;
-  letter-spacing: 0.1em;
-  line-height: 3.0555555556em;
-  padding: 0 2.5em;
+  height: 3.0555555556rem;
+  letter-spacing: 0.1rem;
+  line-height: 3.0555555556rem;
+  padding: 0 2.5rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -443,14 +430,14 @@ input[type="reset"].icon,
 input[type="button"].icon,
 button.icon,
 .button.icon {
-  padding-left: 1.35em;
+  padding-left: 1.35rem;
 }
 input[type="submit"].icon:before,
 input[type="reset"].icon:before,
 input[type="button"].icon:before,
 button.icon:before,
 .button.icon:before {
-  margin-right: 0.5em;
+  margin-right: 0.5rem;
 }
 input[type="submit"].fit,
 input[type="reset"].fit,
@@ -458,7 +445,7 @@ input[type="button"].fit,
 button.fit,
 .button.fit {
   display: block;
-  margin: 0 0 1em 0;
+  margin: 0 0 1rem 0;
   width: 100%;
 }
 input[type="submit"].small,
@@ -466,14 +453,14 @@ input[type="reset"].small,
 input[type="button"].small,
 button.small,
 .button.small {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }
 input[type="submit"].big,
 input[type="reset"].big,
 input[type="button"].big,
 button.big,
 .button.big {
-  font-size: 1.35em;
+  font-size: 1.35rem;
 }
 input[type="submit"].special,
 input[type="reset"].special,
@@ -514,21 +501,21 @@ button:disabled,
 
 /* Form */
 form {
-  margin: 0 0 2em 0;
+  margin: 0 0 2rem 0;
 }
 form .field {
-  margin: 0 0 1.3em 0;
+  margin: 0 0 1.3rem 0;
 }
 form .field.half {
   float: left;
-  padding: 0 0 0 0.65em;
+  padding: 0 0 0 0.65rem;
   width: 50%;
 }
 form .field.half.first {
-  padding: 0 0.65em 0 0;
+  padding: 0 0.65rem 0 0;
 }
 form > .actions {
-  margin: 1.5em 0 0 0 !important;
+  margin: 1.5rem 0 0 0 !important;
 }
 @media screen and (max-width: 736px) {
   form .field.half {
@@ -544,9 +531,9 @@ form > .actions {
 label {
   color: $strong-text-color;
   display: block;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 300;
-  margin: 0 0 1em 0;
+  margin: 0 0 1rem 0;
 }
 
 input[type="text"],
@@ -562,7 +549,7 @@ textarea {
   color: $text-color;
   display: block;
   outline: 0;
-  padding: 0 1em;
+  padding: 0 1rem;
   text-decoration: none;
   width: 100%;
 }
@@ -598,14 +585,14 @@ textarea:focus {
   color: $border-color;
   content: "\f078";
   display: block;
-  height: 2.75em;
-  line-height: 2.75em;
+  height: 2.75rem;
+  line-height: 2.75rem;
   pointer-events: none;
   position: absolute;
   right: 0;
   text-align: center;
   top: 0;
-  width: 2.75em;
+  width: 2.75rem;
 }
 .select-wrapper select::-ms-expand {
   display: none;
@@ -615,11 +602,11 @@ input[type="text"],
 input[type="password"],
 input[type="email"],
 select {
-  height: 2.75em;
+  height: 2.75rem;
 }
 
 textarea {
-  padding: 0.75em 1em;
+  padding: 0.75rem 1rem;
 }
 
 input[type="checkbox"],
@@ -627,9 +614,9 @@ input[type="radio"] {
   appearance: none;
   display: block;
   float: left;
-  margin-right: -2em;
+  margin-right: -2rem;
   opacity: 0;
-  width: 1em;
+  width: 1rem;
   z-index: -1;
 }
 input[type="checkbox"] + label,
@@ -638,10 +625,10 @@ input[type="radio"] + label {
   color: $text-color;
   cursor: pointer;
   display: inline-block;
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 300;
-  padding-left: 2.4em;
-  padding-right: 0.75em;
+  padding-left: 2.4rem;
+  padding-right: 0.75rem;
   position: relative;
 }
 input[type="checkbox"] + label:before,
@@ -656,13 +643,13 @@ input[type="radio"] + label:before {
   background: $bg-color;
   content: "";
   display: inline-block;
-  height: 1.65em;
+  height: 1.65rem;
   left: 0;
-  line-height: 1.58125em;
+  line-height: 1.58125rem;
   position: absolute;
   text-align: center;
   top: 0;
-  width: 1.65em;
+  width: 1.65rem;
 }
 input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before {
@@ -724,20 +711,20 @@ input[type="radio"] + label:before {
 /* List */
 ol {
   list-style: decimal;
-  margin: 0 0 2em 0;
-  padding-left: 1.25em;
+  margin: 0 0 2rem 0;
+  padding-left: 1.25rem;
 }
 ol li {
-  padding-left: 0.25em;
+  padding-left: 0.25rem;
 }
 
 ul {
   list-style: disc;
-  margin: 0 0 2em 0;
-  padding-left: 1em;
+  margin: 0 0 2rem 0;
+  padding-left: 1rem;
 }
 ul li {
-  padding-left: 0.5em;
+  padding-left: 0.5rem;
 }
 ul.alt {
   list-style: none;
@@ -745,7 +732,7 @@ ul.alt {
 }
 ul.alt li {
   border-top: solid 1px $border-color;
-  padding: 0.5em 0;
+  padding: 0.5rem 0;
 }
 ul.alt li:first-child {
   border-top: 0;
@@ -758,7 +745,7 @@ ul.icons {
 }
 ul.icons li {
   display: inline-block;
-  padding: 0 1em 0 0;
+  padding: 0 1rem 0 0;
 }
 ul.icons li:last-child {
   padding-right: 0;
@@ -767,7 +754,7 @@ ul.icons li .icon {
   color: $link-button-color;
 }
 ul.icons li .icon:before {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 ul.actions {
   cursor: default;
@@ -776,18 +763,18 @@ ul.actions {
 }
 ul.actions li {
   display: inline-block;
-  padding: 0 1em 0 0;
+  padding: 0 1rem 0 0;
   vertical-align: middle;
 }
 ul.actions li:last-child {
   padding-right: 0;
 }
 ul.actions.small li {
-  padding: 0 0.5em 0 0;
+  padding: 0 0.5rem 0 0;
 }
 ul.actions.vertical li {
   display: block;
-  padding: 1em 0 0 0;
+  padding: 1rem 0 0 0;
 }
 ul.actions.vertical li:first-child {
   padding-top: 0;
@@ -796,38 +783,38 @@ ul.actions.vertical li > * {
   margin-bottom: 0;
 }
 ul.actions.vertical.small li {
-  padding: 0.5em 0 0 0;
+  padding: 0.5rem 0 0 0;
 }
 ul.actions.vertical.small li:first-child {
   padding-top: 0;
 }
 ul.actions.fit {
   display: table;
-  margin-left: -1em;
+  margin-left: -1rem;
   padding: 0;
   table-layout: fixed;
-  width: calc(100% + 1em);
+  width: calc(100% + 1rem);
 }
 ul.actions.fit li {
   display: table-cell;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 1rem;
 }
 ul.actions.fit li > * {
   margin-bottom: 0;
 }
 ul.actions.fit.small {
-  margin-left: -0.5em;
-  width: calc(100% + 0.5em);
+  margin-left: -0.5rem;
+  width: calc(100% + 0.5rem);
 }
 ul.actions.fit.small li {
-  padding: 0 0 0 0.5em;
+  padding: 0 0 0 0.5rem;
 }
 @media screen and (max-width: 480px) {
   ul.actions {
-    margin: 0 0 2em 0;
+    margin: 0 0 2rem 0;
   }
   ul.actions li {
-    padding: 1em 0 0 0;
+    padding: 1rem 0 0 0;
     display: block;
     text-align: center;
     width: 100%;
@@ -840,10 +827,10 @@ ul.actions.fit.small li {
     margin: 0 !important;
   }
   ul.actions li > *.icon:before {
-    margin-left: -2em;
+    margin-left: -2rem;
   }
   ul.actions.small li {
-    padding: 0.5em 0 0 0;
+    padding: 0.5rem 0 0 0;
   }
   ul.actions.small li:first-child {
     padding-top: 0;
@@ -851,15 +838,15 @@ ul.actions.fit.small li {
 }
 
 dl {
-  margin: 0 0 2em 0;
+  margin: 0 0 2rem 0;
 }
 dl dt {
   display: block;
   font-weight: 300;
-  margin: 0 0 1em 0;
+  margin: 0 0 1rem 0;
 }
 dl dd {
-  margin-left: 2em;
+  margin-left: 2rem;
 }
 
 /* Table */
@@ -868,7 +855,7 @@ dl dd {
 }
 
 table {
-  margin: 0 0 2em 0;
+  margin: 0 0 2rem 0;
   width: 100%;
 }
 table tbody tr {
@@ -880,13 +867,13 @@ table tbody tr:nth-child(2n + 1) {
   background-color: $bg-color;
 }
 table td {
-  padding: 0.75em 0.75em;
+  padding: 0.75rem 0.75rem;
 }
 table th {
   color: $strong-text-color;
-  font-size: 0.9em;
+  font-size: 0.9rem;
   font-weight: 300;
-  padding: 0 0.75em 0.75em 0.75em;
+  padding: 0 0.75rem 0.75rem 0.75rem;
   text-align: left;
 }
 table thead {
@@ -918,16 +905,16 @@ table.alt tfoot {
 
 /* Panel */
 .panel {
-  padding: 4em 4em 2em 4em;
+  padding: 4rem 4rem 2rem 4rem;
 
   transform: translateY(-100vh);
 
   transition: transform 0.5s ease;
 
   background: rgba($dark-bg-color, 0.6);
-  top: 4em;
+  top: 4rem;
   left: 0;
-  max-height: calc(80vh - 4em);
+  max-height: calc(80vh - 4rem);
   overflow-y: auto;
   position: fixed;
   width: 100%;
@@ -939,13 +926,13 @@ table.alt tfoot {
 .panel > .inner {
   margin: 0 auto;
   max-width: 100%;
-  width: 75em;
+  width: 75rem;
 }
 .panel > .inner.split {
   display: flex;
 }
 .panel > .inner.split > div {
-  margin-left: 4em;
+  margin-left: 4rem;
   width: 50%;
 }
 .panel > .inner.split > :first-child {
@@ -953,17 +940,17 @@ table.alt tfoot {
 }
 .panel > .closer {
   transition: opacity 0.2s ease-in-out;
-  background-image: url("/assets/css/images/close.svg");
+  background-image: url("/assets/images/close.svg");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 3em;
+  background-size: 3rem;
   cursor: pointer;
-  height: 5em;
+  height: 5rem;
   opacity: 0.25;
   position: absolute;
   right: 0;
   top: 0;
-  width: 5em;
+  width: 5rem;
   z-index: 2;
 }
 .panel > .closer:hover {
@@ -975,13 +962,13 @@ table.alt tfoot {
 }
 @media screen and (max-width: 1280px) {
   .panel {
-    padding: 3em 3em 1em 3em;
+    padding: 3rem 3rem 1rem 3rem;
   }
   .panel > .inner.split > div {
-    margin-left: 3em;
+    margin-left: 3rem;
   }
   .panel > .closer {
-    background-size: 2.5em;
+    background-size: 2.5rem;
     background-position: 75% 25%;
   }
 }
@@ -1000,9 +987,9 @@ table.alt tfoot {
 
   .panel {
     transform: translateY(-100vh);
-    padding: 4em 2em 2em 2em;
+    padding: 4rem 2rem 2rem 2rem;
     bottom: auto;
-    top: calc(4em - 1px);
+    top: calc(4rem - 1px);
   }
   .panel.active {
     transform: translateY(0);
@@ -1048,23 +1035,23 @@ body.modal-active #wrapper:after {
   pointer-events: none;
 
   transition: top 0.75s ease-in-out, opacity 0.35s ease-out, visibility 0.35s;
-  background-image: url("/assets/css/images/spinner.svg");
+  background-image: url("/assets/images/spinner.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   content: "";
   display: block;
-  font-size: 2em;
-  height: 2em;
+  font-size: 2rem;
+  height: 2rem;
   left: 50%;
-  line-height: 2em;
-  margin: -1em 0 0 -1em;
+  line-height: 2rem;
+  margin: -1rem 0 0 -1rem;
   opacity: 0;
   position: fixed;
   text-align: center;
   top: 75%;
   visibility: hidden;
-  width: 2em;
+  width: 2rem;
 }
 body.loading #wrapper:before {
   transition: opacity 1s ease-out !important;
@@ -1077,10 +1064,10 @@ body.loading #wrapper:before {
 
 /* Header */
 body {
-  padding: 4em 0 0 0;
+  padding: 4rem 0 0 0;
 }
 
-$header-height: 4em;
+$header-height: 4rem;
 
 #header {
   transform: translateY(0);
@@ -1091,7 +1078,7 @@ $header-height: 4em;
   background-color: $bg-color;
   height: $header-height;
   line-height: $header-height;
-  padding: 0 1.5em;
+  padding: 0 1.5rem;
   user-select: none;
   width: 100%;
   z-index: 10002;
@@ -1126,14 +1113,14 @@ $header-height: 4em;
     border: 0;
     color: $strong-text-color;
     display: inline-block;
-    letter-spacing: 0.1em;
-    // padding: 0 1em;
+    letter-spacing: 0.1rem;
+    // padding: 0 1rem;
     text-transform: uppercase;
 
     &.icon:before {
       color: $link-button-color;
       float: right;
-      margin-left: 0.75em;
+      margin-left: 0.75rem;
     }
     &:hover {
       color: $strong-text-color !important;
@@ -1154,14 +1141,14 @@ $header-height: 4em;
   }
 }
 body.loading #header {
-  transform: translateY(-4em);
+  transform: translateY(-4rem);
 }
 
 .hero {
     /* Sizing */
     width: 100%;
     max-width: 100%;
-    height: 100vh;
+    height: calc(100vh - 4rem);
     margin: 0;
     /* Flexbox stuff */
     display: flex;
@@ -1174,7 +1161,7 @@ body.loading #header {
     
     /* Background styles */
     // background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.1)), url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg');
-    background-image: url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg');
+    background-image: url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.webP');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1185,7 +1172,7 @@ body.loading #header {
       display: flex;
       justify-content: center;
       a {
-        width: 10em;
+        width: 10rem;
         margin: 10px;
         padding: 0px;
       }
@@ -1194,15 +1181,15 @@ body.loading #header {
 
 @media screen and (max-width: 980px) {
   body {
-    padding: 4em 0 0 0;
+    padding: 4rem 0 0 0;
   }
   #header h1 {
-    font-size: 0.9em;
+    font-size: 0.9rem;
   }
   #header nav {
     a {
-      font-size: 0.9em;
-      padding: 0 1em;
+      font-size: 0.9rem;
+      padding: 0 1rem;
     }
     img {
       padding-bottom: 5px;
@@ -1220,7 +1207,7 @@ body.loading #header {
   justify-content: center;
   flex-wrap: wrap;
   -webkit-tap-highlight-color: transparent;
-  //margin-top: -4em;
+  //margin-top: -4rem;
   // background-color: $bg-color2;
 
   .thumb {
@@ -1264,8 +1251,8 @@ body.loading #header {
     }
     // h2 {
     //   pointer-events: none;
-    //   bottom: 0.5em;
-    //   font-size: 0.8em;
+    //   bottom: 0.5rem;
+    //   font-size: 0.8rem;
     //   left: 0;
     //   margin: 0;
     //   position: absolute;
@@ -1379,7 +1366,7 @@ body.loading #main .thumb {
 /* Footer */
 #footer .copyright {
   color: $link-button-color;
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 #footer .copyright a {
   color: inherit;
@@ -1387,7 +1374,7 @@ body.loading #main .thumb {
 
 #welcome {
   text-align: center;
-  padding: 2em;
+  // padding: 2rem;
   max-width: 700px;
   min-width: 320px;
   margin: 0 auto 0;
@@ -1408,7 +1395,7 @@ body.loading #main .thumb {
   max-width: 700px;
   min-width: 320px;
   margin: 0 auto 0;
-  padding: 0.5em;
+  padding: 0.5rem;
   text-align: center;
 }
 
