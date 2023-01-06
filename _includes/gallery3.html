@@ -18,32 +18,50 @@
         
     </div>
     <div class="modal-content">
-      <div class="overlay top left right flex flex-row flex-space-between">
+      <!-- <div class="overlay top left right flex flex-row flex-space-between">
         <div>
-          <a class="button hide-on-small-screen" onclick="document.getElementById('miniaturestable').scrollLeft -= 400;">&#10094;&#10094;</a>
           <a class="button" onclick="plusSlides(-1)">&#10094;</a>
         </div>
         <h4 id="caption"></h4>
         <div>
           <a class="button" onclick="plusSlides(1)">&#10095;</a>
-          <a class="button hide-on-small-screen" onclick="document.getElementById('miniaturestable').scrollLeft += 400;">&#10095;&#10095;</a>
         </div>
+      </div> -->
+      
+      <div class="overlay top center">
+        <h4 id="caption">{{ forloop.index }} / {{ include.posts.size }}</h4>
+      </div>
+      <div class="overlay top left only-on-hover">
+        <a class="button" onclick="plusSlides(-1)" title="Previous">&#10094;</a>
+      </div>
+      <div class="overlay top right only-on-hover">
+        <a class=" button" onclick="plusSlides(1)" title="Next">&#10095;</a>
       </div>
       
+
       {% for post in include.posts %}
-        <div class="mySlides" style="display: none;">
+        <div class="mySlides" style="display: none;" src-data="{{ post.url }}" index="{{ forloop.index }}" of="{{ include.posts.size }}">
             <div class="img-container">
+              <a href="{{ post.url }}">
                 <img src="{{ site.large_pics_dir }}/{{ post.image }}" 
                 class="" 
                 data-srcset="{{ site.thumb_dir }}/{{ post.image }} 342w,  600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w" 
                 srcset="{{ site.thumb_dir }}/{{ post.image }} 342w, {{ site.small_pics_dir }}/{{ post.image }} 600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w">
-              
-                    
-                <div class="overlay bottom right button">
+              </a>  
+                
+
+                <div class="overlay  middle center only-on-hover flex">
+                  <a href="{{ post.url }}">
+                  <div class="button">
+                    <span class="material-symbols-outlined">info</span>More Info
+                  </div>
+                  </a>
+                </div>    
+                <!-- <div class="overlay center top button special">
                     <a href="{{ post.url }}" title="More information">
                       <span class="material-symbols-outlined">info</span>
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
       {% endfor %}
@@ -64,9 +82,11 @@
     function showSlides(n) {
       let i;
       let slides = document.getElementsByClassName("mySlides");
+      let miniatures = document.getElementsByClassName("card");
       let dots = document.getElementsByClassName("demo");
       let captionText = document.getElementById("caption");
-      let top = document.getElementById("myModal").offsetTop; //Getting Y of target element
+      let gallery = document.getElementById("myModal");
+
       if (n > slides.length) {slideIndex = 1}
       if (n < 1) {slideIndex = slides.length}
       for (i = 0; i < slides.length; i++) {
@@ -75,11 +95,15 @@
       for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
       }
+
       slides[slideIndex-1].style.display = "block";
       dots[slideIndex-1].className += " active";
-      captionText.innerHTML = dots[slideIndex-1].alt;
+      let url = slides[slideIndex-1].getAttribute("src-data");
       
-      window.scrollTo(0, top); 
+      // Scroll to make the full picture and its miniature visibles
+      //gallery.scrollIntoView({behavior: "smooth"});//, block: "end", inline: "nearest"});
+      miniatures[slideIndex-1].scrollIntoView({behavior: "smooth", block: "end", inline: "nearest"});
+      if (captionText)  captionText.innerHTML = dots[slideIndex-1].alt;
     }
     </script>
 </section>

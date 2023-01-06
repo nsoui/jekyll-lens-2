@@ -281,8 +281,19 @@ q {
 	position: absolute;
 	z-index: 100;
 	transition: .3s ease;
-	background-color: #000c;
-	width: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	
+	&.fullwidth {
+		width: 100%;
+	}
+
+	&.only-on-hover {
+		background-color: rgba(0, 0, 0, 0.0);
+
+		&:hover{
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+	}
 
 	&.top {
 	  top: 0;
@@ -298,22 +309,30 @@ q {
 	}
 	&.center {
 	  left: 50%;
-	  transform: translate(0%, -50%);
-	  -ms-transform: translate(0%, -50%);
+	  transform: translate(-50%, 0%);
+	  -ms-transform: translate(-50%, 0%);
 	}
   
 	&.middle {
-	  top: 50%;
-	  transform: translate(0%, -50%);
-	  -ms-transform: translate(0%, -50%);
+		top: 50%;
+		transform: translate(0%, -50%);
+		-ms-transform: translate(0%, -50%);
 	}
-
-	h1, h2, h3, h4, h5, h6 {
-		margin: 0;
+	&.middle.center {
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+	}
+		
+	h1, h2, h3, h4, h5, h6 , .button {
 		z-index: 1;
 		color: $inverted-text-color;
-		padding: 10px 0 10px 0;
+		text-align: center;
 	}
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+		padding: 10px;
+	}
+	
 	// h3 {
 	// 	font-size: 0.8rem;
 	// }
@@ -333,12 +352,17 @@ q {
 	flex-flow: row wrap;
 	align-items: flex-end;
 	justify-content: center;
-	width: 100vw;
-	padding-top: 4em;
+	width: 100%;
+
+	// padding-top: 4em;
   
 	.title {
 	  padding: 1em;
-	  
+	}
+
+	img {
+		max-height: 70vh;
+		width: 100%;
 	}
   
 	.material-symbols-outlined {
