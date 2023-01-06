@@ -2,7 +2,7 @@
         <div class="inner split">
             <div>
                 <section>
-                    <img class="lazy" src="/assets/css/images/spinner.svg"  data-src="/assets/images/me.jpg" data-srcset="" />
+                    <img class="lazy" src="/assets/images/spinner.svg"  data-src="/assets/images/me.jpg" data-srcset="" />
                 </section>
             </div>
             <div>
@@ -14,7 +14,10 @@
                     <h2>{{ site.footer.social_headline }}</h2>
                     <ul class="icons">
                     {% for link in site.social %}
-                        <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" class="icon {{ link.icon }}"><span class="label">{{ link.label }}</span></a></li>
+                        <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" >
+                            <!-- <span class="material-symbols-outlined">{{ link.icon }}</span> -->
+                            <span class="label">{{ link.label }}</span>
+                        </a></li>
                     {% endfor %}
                     </ul>
                 </section>

@@ -29,23 +29,23 @@ social:
   -
     label: "Twitter"
     url: "https://twitter.com/nezarsouissi"
-    icon: "fa-twitter"
+    icon: "twitter"
   -
     label: "Facebook"
     url: "https://www.facebook.com/zphotons/"
-    icon: "fa-facebook"
+    icon: "facebook"
   -
     label: "Instagram"
     url: "https://www.instagram.com/nezarsouissi/"
-    icon: "fa-instagram"
+    icon: "instagram"
   -
     label: "Github"
     url: "https://github.com/nsoui"
-    icon: "fa-github"
+    icon: "github"
   -
     label: "LinkedIn"
     url: "https://www.linkedin.com/in/nizarsouissi"
-    icon: "fa-linkedin"
+    icon: "linkedin"
 
 
 contact:
