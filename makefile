@@ -77,22 +77,25 @@ LARGE_DIR := gallery/large
 
 filtered_pics: 
 	processpictures.py  -jekyll -skip-newer-targets -overwrite -keep-original-name -dest $(FILTERED_DIR) -paths $(HOME)/Pictures/Social/*.jpg 
+	# for fff in OriginalPics/*.md; do echo sed -i -e 's/\.jpg/\.webP/g' $$fff; done
+	sed -i -e 's/\.jpg/\.webP/g' OriginalPics/*.md
 	mv -f OriginalPics/*.md _posts/
+	
 
 SRC_PICS := $(wildcard $(FILTERED_DIR)/*.jpg)
-THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.jpg,$(SRC_PICS))
-SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.jpg,$(SRC_PICS))
-LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.jpg,$(SRC_PICS))
+THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.webp,$(SRC_PICS))
+SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.webp,$(SRC_PICS))
+LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.webp,$(SRC_PICS))
 
-MOGRIFY_CMD := mogrify  -format jpg -quality 100
+MOGRIFY_CMD := mogrify -format webP -quality 80 -define webp:lossless=true
 
-$(THUMBS_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
+$(THUMBS_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(THUMBS_DIR) -thumbnail x250 $<
 
-$(SMALL_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
+$(SMALL_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(SMALL_DIR) -resize 600 $<
 
-$(LARGE_DIR)/%.jpg: $(FILTERED_DIR)/%.jpg
+$(LARGE_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(LARGE_DIR) -resize 1200 $<
 
 
