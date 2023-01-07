@@ -32,10 +32,10 @@
         <h4 id="caption">{{ forloop.index }} / {{ include.posts.size }}</h4>
       </div>
       <div class="overlay top left only-on-hover">
-        <a class="button" onclick="plusSlides(-1)" title="Previous">&#10094;</a>
+        <a class="button inverted-colors" onclick="plusSlides(-1)" title="Previous">&#10094;</a>
       </div>
       <div class="overlay top right only-on-hover">
-        <a class=" button" onclick="plusSlides(1)" title="Next">&#10095;</a>
+        <a class=" button inverted-colors" onclick="plusSlides(1)" title="Next">&#10095;</a>
       </div>
       
 
@@ -50,12 +50,12 @@
               </a>  
                 
 
-                <div class="overlay  middle center only-on-hover flex">
+                <div class="overlay  middle center only-on-hover button inverted-colors">
+                  <h3>
                   <a href="{{ post.url }}">
-                  <div class="button">
-                    <span class="material-symbols-outlined">info</span>More Info
-                  </div>
+                    More Info
                   </a>
+                </h3>
                 </div>    
                 <!-- <div class="overlay center top button special">
                     <a href="{{ post.url }}" title="More information">

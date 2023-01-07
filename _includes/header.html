@@ -5,7 +5,7 @@
         <ul>
             <li>
                 <a href="/">
-                    <img src="/assets/images/favicon.png" />
+                    <img class="logo" src="{{ site.static_images_folder }}/favicon.png" />
                     <span class="text">{{ site.title }}</span>
                     <!-- {% if elements.size > 2  %}
                         <span class="material-symbols-outlined">home</span>
@@ -26,9 +26,11 @@
 		<ul>
 		{% for link in site.data.nav.top %}
 			<li>
-				<a href="{{ link.url }}">
-					<span class="material-symbols-outlined">{{ link.icon }}</span><span class="text">{{ link.label }}</span>
-				</a>
+                <h3>
+                    <a href="{{ link.url }}">
+                        <img class="icon" src="{{ site.static_images_folder }}/{{ link.icon }}.svg"/><span class="text">{{ link.label }}</span>
+                    </a>
+                </h3>
 			</li>
 		{% endfor %}
 		</ul>

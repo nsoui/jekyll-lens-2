@@ -5,7 +5,7 @@ layout: default
 <div id="main">
     <section id="singleImagePage">
         <div class="img-container">
-            <img src="" class="lazy" 
+            <img src="" class="lazy single-page-image" 
             data-src="" 
             data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
             srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
@@ -18,19 +18,19 @@ layout: default
         <div class="img-description">
             <div class="img-title">
                 <div class="title"><h3>{{ page.title }}</h3></div>
-                <div><span class="material-symbols-outlined">loyalty</span>{{ page | tags }}</div>
+                <div><h4><img class="icon" src="{{ site.static_images_folder }}/loyalty.svg"/>{{ page | tags }}</h4></div>
             </div>
             <div class="exif">
                 <ul>
-                    <li><span class="material-symbols-outlined">photo_camera</span>{{ page.camera }}</li>
-                    <li><span class="material-symbols-outlined">lens</span>{{ page.lens }}</li>
-                    <li><span class="material-symbols-outlined">straighten</span>{{ page.focallength }} mm</li>
-                    <li><span class="material-symbols-outlined">shutter_speed</span>{{ page.exposure }} s</li>
-                    <li><span class="material-symbols-outlined">camera</span>f/{{ page.fstop }} </li>
-                    <li><span class="material-symbols-outlined">camera_roll</span>iso {{ page.iso }}</li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/photo_camera.svg"/>{{ page.camera }}</h4></li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/lens.svg"/>{{ page.lens }}</h4></li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/focal_length.svg"/>{{ page.focallength }} mm</h4></li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/shutter_speed.svg"/>{{ page.exposure }} s</h4></li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/fstop.svg"/>f/{{ page.fstop }} </h4></li>
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/iso.svg"/>iso {{ page.iso }}</h4></li>
                     
-                    <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</li> -->
-                    <li><span class="material-symbols-outlined">copyright</span>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
+                    <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</h4></li> -->
+                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
                     
                 </ul>  
             </div>

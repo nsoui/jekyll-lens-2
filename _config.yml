@@ -73,6 +73,7 @@ email: "nizar@souissi.eu"
 thumb_dir: "/gallery/thumbs"
 small_pics_dir: "/gallery/small"
 large_pics_dir: "/gallery/large"
+static_images_folder: "/assets/images"
 
 
 ## Make sure these values are also the same in the makefile

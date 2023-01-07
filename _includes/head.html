@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll Lens by Elastic Designs" />
 
 
-<link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-<link rel="shortcut icon" type="image/png" href="/assets/images/favicon.png">
+<link rel="icon" type="image/png" href="{{ site.static_images_folder }}/favicon.png" />
+<link rel="shortcut icon" type="image/png" href="{{ site.static_images_folder }}/favicon.png">
 
 
 <meta property="fb:app_id" content="{{ site.facebook_app_id }}" />
@@ -23,14 +23,14 @@
 {% if page.image %}
   <meta property="og:image" content="{{ site.small_pics_dir }}/{{ page.image }}">
 {% else %}
-  <meta property="og:image" content="/assets/images/social.jpg">
+  <meta property="og:image" content="{{ site.static_images_folder }}/social.jpg">
 {% endif %}
 
 <meta name="google-site-verification" content="{{ site.googlesiteverification }}">
 <meta name="msvalidate.01" content="{{ site.msvalidate }}">
 
 <!-- <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css"> -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/home.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/component.css">

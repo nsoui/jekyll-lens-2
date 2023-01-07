@@ -119,9 +119,9 @@ section {
 section {
   margin: 10px;
   width: 90%;
-  //max-width: 900px;
+  max-width: 1200px;
   // background-color: $bg-color;
-  // padding-top: 3rem;
+  padding-top: 4rem;
 }
 
 #tags {
@@ -284,15 +284,18 @@ h6 {
   line-height: 1.5;
   margin: 0 0 0 0;
   text-transform: uppercase;
-}
-h1 a,
-h2 a,
-h3 a,
-h4 a,
-h5 a,
-h6 a {
-  color: inherit;
-  text-decoration: none;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 0.5rem;
+    filter: $svg-filter;
+  }
+  
 }
 
 h1 {
@@ -408,6 +411,12 @@ button,
   text-decoration: none;
   text-transform: uppercase;
   white-space: nowrap;
+
+  &.inverted-colors {
+    box-shadow: inset 0 0 0 2px $inverted-text-color;
+    color: $inverted-text-color ;
+  }
+
 }
 input[type="submit"]:hover,
 input[type="reset"]:hover,
@@ -940,7 +949,7 @@ table.alt tfoot {
 }
 .panel > .closer {
   transition: opacity 0.2s ease-in-out;
-  background-image: url("/assets/images/close.svg");
+  background-image: url("{{ site.static_images_folder }}/close.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 3rem;
@@ -1035,7 +1044,7 @@ body.modal-active #wrapper:after {
   pointer-events: none;
 
   transition: top 0.75s ease-in-out, opacity 0.35s ease-out, visibility 0.35s;
-  background-image: url("/assets/images/spinner.svg");
+  background-image: url("{{ site.static_images_folder }}/spinner.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -1105,6 +1114,7 @@ $header-height: 4rem;
       li {
         display: inline-block;
         padding: 0;
+        margin: 0 1rem;
       }
     }
   }
@@ -1134,10 +1144,11 @@ $header-height: 4rem;
     margin: 5px;
   }
 
-  img {
+  img.logo {
   // width: 100%;
   max-height: $header-height;
   padding: 5px;
+  filter: $svg-filter;
   }
 }
 body.loading #header {
@@ -1183,14 +1194,12 @@ body.loading #header {
   body {
     padding: 4rem 0 0 0;
   }
-  #header h1 {
-    font-size: 0.9rem;
-  }
+
   #header nav {
-    a {
-      font-size: 0.9rem;
-      padding: 0 1rem;
-    }
+    // a {
+    //   font-size: 0.9rem;
+    //   padding: 0 1rem;
+    // }
     img {
       padding-bottom: 5px;
     }
