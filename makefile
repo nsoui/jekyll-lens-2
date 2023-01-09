@@ -7,7 +7,7 @@ HOME       := $(shell echo $$HOME)
 
 
 # IMAGETAG  := krismorte/hugo-docker
-IMAGETAG  := jekyll/jekyll
+IMAGETAG  := bretfisher/jekyll-serve
 CNTNAME   := jekyll # name for container name : docker_name, hostname : name
 
 # -- }}}
@@ -17,7 +17,7 @@ CNTNAME   := jekyll # name for container name : docker_name, hostname : name
 
 
 CACHEFLAGS := --no-cache=true --pull
-MOUNTFLAGS := -v $(PWD):/srv/jekyll:Z --volume=$(PWD)/vendor/bundle:/usr/local/bundle:Z 
+MOUNTFLAGS := -v $(PWD):/site 
 PORTFLAGS  := -p 4000:4000 
 # RUNFLAGS   := -c 256 -m 256m -e PGID=$(PGID) -e PUID=$(PUID) -u $(PUID):$(PGID)
 # RUNFLAGS   += --sysctl net.ipv6.conf.all.disable_ipv6=1
@@ -109,7 +109,7 @@ build :
 	$(HUGO_CMD) jekyll build
 
 serve:
-	$(HUGO_CMD) jekyll serve --trace
+	$(HUGO_CMD)
 
 compress:
 	find ./public/ -name '*.gz' -delete

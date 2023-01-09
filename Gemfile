@@ -8,10 +8,16 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll", "~>4.2.0"
-gem "rake", "~>10.5"
-gem "sass", "~>3.4"
-gem "json", "~> 2"
+# gem "jekyll", "~>4.3"
+# gem "rake", "~>10.5"
+# gem "sass", "~>3.4"
+# gem "json", "~> 2"
+# gem "webrick"
+
+gem "jekyll", "~>4.3"
+gem "rake"
+gem "sass"
+gem "json"
 gem "webrick"
 
 
@@ -29,5 +35,6 @@ group :jekyll_plugins do
   # gem "jekyll-compose"
   # gem "kramdown"
   gem 'jekyll-tagging'
-
+  # gem "jekyll-sass-converter", github: 'jekyll/jekyll-sass-converter'
+  # gem "sass-embedded"
 end
