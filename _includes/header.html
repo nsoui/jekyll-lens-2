@@ -19,6 +19,13 @@
                 <span class="text not-clickable">> {{ elements[-1] }}</span>
             </li>
             {% endif %}
+            <li>
+                <h3>
+                    <script>
+                        document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/left.svg"/></a>');
+                    </script>
+                </h3>
+            </li>
 
         </ul>
     </nav>
