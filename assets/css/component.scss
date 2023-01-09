@@ -241,45 +241,6 @@ q {
 }
 
 
-@-webkit-keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
-
-@-moz-keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
-
-@keyframes loader {
-	0% { background: #ddd; }
-	33% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ccc, -15px 30px 1px #ddd; }
-	66% { background: #ccc; box-shadow: 0 0 1px #ccc, 15px 30px 1px #ddd, -15px 30px 1px #ccc; }
-}
-
-@media screen and (max-width: 830px) {
-
-	.stamp { font-size: 0.8em; border: 0.3rem double #555; }
-	.og-expander-inner { padding: 30px; }
-	.og-expander h3 { font-size: 30px; padding: 10px 0px; }
-	.og-expander p, ul.exif { font-size: 13px; }
-	.og-expander a { font-size: 12px; }
-	
-}
-
-@media screen and (max-width: 650px) {
-
-	.og-fullimg { display: none; }
-	.og-details { float: none; width: 100%; }
-	
-}
-
-
-
-
-
 
 .gallery-section {
 	padding-top: unset;
@@ -315,8 +276,11 @@ q {
 	  flex-flow: row nowrap;
 	  justify-content: flex-end;
 
-	  h4 {
+	  h4, h5 {
 		text-transform: none;
+		a {
+			color: $link-button-color;
+		}
 	  }
   
 	  .img-title{
@@ -339,6 +303,10 @@ q {
 		  list-style: none;
 		  text-align: left;
 		  margin: 0;
+		  font-size: 1rem;
+		  li {
+			margin-top: 0.25rem;
+		  }
 		}
 	  }
   

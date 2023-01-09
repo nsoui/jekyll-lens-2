@@ -9,28 +9,38 @@ layout: default
             data-src="" 
             data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
             srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
-            <div class="overlay top bottom left only-on-hover button">
+            <div class="overlay top bottom left">
+                <h1>
                 <script>
-                    document.write('<a href="' + document.referrer + '" title="Previous">&#10094;</a>');
+                    document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/left.svg"/></a>');
                 </script>
+                </h1>
             </div>
         </div>
         <div class="img-description">
             <div class="img-title">
                 <div class="title"><h3>{{ page.title }}</h3></div>
-                <div><h4><img class="icon" src="{{ site.static_images_folder }}/loyalty.svg"/>{{ page | tags }}</h4></div>
+                <div class="exif">
+                    <ul>
+                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/loyalty.svg"/>{{ page | tags }}</h5></li>
+                        <li></li>
+                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/location.svg"/>{{ page.city }}, {{ page.country }}</h5></li>
+                        
+                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
+                    </ul>
+                </div>
             </div>
             <div class="exif">
                 <ul>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/photo_camera.svg"/>{{ page.camera }}</h4></li>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/lens.svg"/>{{ page.lens }}</h4></li>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/focal_length.svg"/>{{ page.focallength }} mm</h4></li>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/shutter_speed.svg"/>{{ page.exposure }} s</h4></li>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/fstop.svg"/>f/{{ page.fstop }} </h4></li>
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/iso.svg"/>iso {{ page.iso }}</h4></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/photo_camera.svg"/>{{ page.camera }}</h5></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/lens.svg"/>{{ page.lens }}</h5></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/focal_length.svg"/>{{ page.focallength }} mm</h5></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/shutter_speed.svg"/>{{ page.exposure }} s</h5></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/fstop.svg"/>f/{{ page.fstop }} </h5></li>
+                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/iso.svg"/>iso {{ page.iso }}</h5></li>
                     
-                    <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</h4></li> -->
-                    <li><h4><img class="icon" src="{{ site.static_images_folder }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
+                    <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</h5></li> -->
+                    
                     
                 </ul>  
             </div>
