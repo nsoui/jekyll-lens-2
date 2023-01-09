@@ -1,9 +1,13 @@
 ---
 ---
 
+@use "gradient" as gradient;
+
 @import url("https://fonts.googleapis.com/css2?family=Lato");
 
+
 @import "theme";
+
 
 /* Reset */
 html,
@@ -121,7 +125,7 @@ section {
   width: 90%;
   max-width: 1200px;
   // background-color: $bg-color;
-  padding-top: 4rem;
+  //padding-top: 4rem;
 }
 
 #tags {
@@ -248,6 +252,7 @@ a {
   // border-bottom: dotted 1px;
   color: $link-button-color;
   text-decoration: none;
+  cursor: pointer;
 }
 a:hover {
   border-bottom-color: transparent;
@@ -270,6 +275,7 @@ i {
 
 p {
   margin: 0 0 2rem 0;
+  text-align: justify;
 }
 
 h1,
@@ -294,6 +300,20 @@ h6 {
     height: 1.6rem;
     margin: 0 0.5rem;
     filter: $svg-filter;
+    &.inverted-colors {
+      filter: $svg-filter-inverted;
+    }
+  }
+
+  &.inverted-colors {
+    color: $inverted-text-color;
+    .icon {
+      filter: $svg-filter-inverted;
+    }
+    .button {
+      box-shadow: inset 0 0 0 2px $inverted-text-color;
+      color: $inverted-text-color ;
+    }
   }
   
 }
@@ -406,7 +426,7 @@ button,
   height: 3.0555555556rem;
   letter-spacing: 0.1rem;
   line-height: 3.0555555556rem;
-  padding: 0 .5rem;
+  padding: 0 1.5rem;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -996,7 +1016,7 @@ table.alt tfoot {
 
   .panel {
     transform: translateY(-100vh);
-    padding: 4rem 2rem 2rem 2rem;
+    padding: 2rem 2rem 2rem 2rem;
     bottom: auto;
     top: calc(4rem - 1px);
   }
@@ -1172,7 +1192,7 @@ body.loading #header {
     
     /* Background styles */
     // background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.1)), url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg');
-    background-image: url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.webP');
+    background-image: url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake.webP');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1488,8 +1508,99 @@ ul.cloud[data-show-value] a::after {
   font-size: 0.75rem;
 }
 
+.shade {
+  &-scrim{
+    &-to-bottom{
+      /* scrim gradient */
+      background-image: linear-gradient(to bottom, gradient.scrim(#000000, 0.7));
+    }
+    &-to-top{
+      /* scrim gradient */
+      background-image: linear-gradient(to top, gradient.scrim(#000000, 0.7));
+    }
+    
+  }
+  &-full {
+    background-color: rgba(0, 0, 0, 0.5);  
+    &.only-on-hover {
+      background-color: rgba(0, 0, 0, 0.0);
+  
+      &:hover{
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+    }
+  }  
+}
 
 
+
+.overlay {
+	position: absolute;
+	z-index: 100;
+	transition: .3s ease;
+	
+	&.fullwidth {
+		width: 100%;
+	}
+
+	&.top {
+	  top: 0;
+	}
+	&.right {
+	  right: 0;
+	}
+	&.bottom {
+	  bottom: 0;
+	}
+	&.left {
+	  left:0;
+	}
+	&.center {
+	  left: 50%;
+	  transform: translate(-50%, 0%);
+	  -ms-transform: translate(-50%, 0%);
+	}
+  &.down-to-middle {
+    bottom: 50%;
+  }
+
+  &.up-to-middle {
+    top: 50%;
+  }
+  
+
+	&.middle {
+		top: 50%;
+		transform: translate(0%, -50%);
+		-ms-transform: translate(0%, -50%);
+	}
+	&.middle.center {
+		transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+	}
+
+	&.inverted-colors {
+    color: $inverted-text-color;
+		h1, h2, h3, h4, h5, h6 , .button, a {
+			color: inherit ;
+		}
+
+		.button {
+			box-shadow: inset 0 0 0 2px $inverted-text-color;
+		}
+	}
+	
+	h1, h2, h3, h4, h5, h6 , .button {
+		z-index: 1;
+		// color: $inverted-text-color;
+		text-align: center;
+		
+	}
+	h1, h2, h3, h4, h5, h6 {
+		margin: 0;
+		padding: 10px;
+	}
+}
 
 
 

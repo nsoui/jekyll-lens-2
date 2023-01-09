@@ -65,4 +65,5 @@ $input-color: #d4d6d5;
 // Calculate it here https://codepen.io/sosuke/pen/Pjoqqp and add 
 // brightness(0) saturate(100%) to the beginnging
 $svg-filter: brightness(0) saturate(100%) invert(44%) sepia(68%) saturate(635%) hue-rotate(145deg) brightness(87%) contrast(90%);
+$svg-filter-inverted: brightness(0) saturate(100%) invert(94%) sepia(12%) saturate(1696%) hue-rotate(301deg) brightness(104%) contrast(98%);
 

@@ -1,0 +1,104 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:math';
+@use 'sass:meta';
+
+@function _make-gradient-list($map, $color, $opacity, $start, $end) {
+  $color-stops: ();
+  @each $key, $mod in $map {
+    $position: $mod * ($end - $start) + $start;
+    $new-stop: color.change($color, $alpha: $key * $opacity);
+    $color-stops: list.append($color-stops, $new-stop $position, "comma");
+  }
+  @return $color-stops;
+}
+
+// `scrim` smoothing
+@function scrim($color: #000000, $opacity: 1, $start: 0, $end: 100%) {
+  // validate arguments
+  @if meta.type-of($color) != color {
+    @error '$color must be a color, was #{$color}';
+  }
+  @if meta.type-of($opacity) != number or $opacity < 0 or $opacity > 1 {
+    @error '$opacity must be a number from 0 to 1, was #{$opacity}';
+  }
+  @if not math.compatible($start, $end) {
+    @error '$start and $end values must be compatible: were #{$start} and #{$end}';
+  }
+
+  $scrim: (
+    1: 0,
+    0.738: 0.19,
+    0.541: 0.34,
+    0.382: 0.47,
+    0.278: 0.565,
+    0.194: 0.65,
+    0.126: 0.73,
+    0.075: 0.802,
+    0.042: 0.861,
+    0.021: 0.91,
+    0.008: 0.952,
+    0.002: 0.982,
+    0: 1
+  );
+  @return _make-gradient-list($scrim, $color, $opacity, $start, $end);
+}
+
+// `easeOutSine` smoothing
+@function easeOutSine($color: #000000, $opacity: 1, $start: 0, $end: 100%) {
+  // validate arguments
+  @if meta.type-of($color) != color {
+    @error '$color must be a color, was #{$color}';
+  }
+  @if meta.type-of($opacity) != number or $opacity < 0 or $opacity > 1 {
+    @error '$opacity must be a number from 0 to 1, was #{$opacity}';
+  }
+  @if not math.compatible($start, $end) {
+    @error '$start and $end values must be compatible: were #{$start} and #{$end}';
+  }
+
+  $easeOutSine: (
+    1: 0,
+    0.917: 0.053,
+    0.834: 0.106,
+    0.753: 0.159,
+    0.672: 0.213,
+    0.591: 0.268,
+    0.511: 0.325,
+    0.433: 0.384,
+    0.357: 0.445,
+    0.283: 0.509,
+    0.213: 0.577,
+    0.147: 0.65,
+    0.089: 0.729,
+    0.042: 0.814,
+    0.011: 0.906,
+    0: 1
+  );
+  @return _make-gradient-list($easeOutSine, $color, $opacity, $start, $end);
+}
+
+// `clothoid` smoothing
+@function clothoid($color: #000000, $opacity: 1, $start: 0, $end: 100%) {
+  // validate arguments
+  @if meta.type-of($color) != color {
+    @error '$color must be a color, was #{$color}';
+  }
+  @if meta.type-of($opacity) != number or $opacity < 0 or $opacity > 1 {
+    @error '$opacity must be a number from 0 to 1, was #{$opacity}';
+  }
+  @if not math.compatible($start, $end) {
+    @error '$start and $end values must be compatible: were #{$start} and #{$end}';
+  }
+
+  $clothoid: (
+    1: 0,
+    0.3: 0.50,
+    0.15: 0.65,
+    0.075: 0.755,
+    0.037: 0.8285,
+    0.019: 0.88,
+    0: 1
+  );
+  @return _make-gradient-list($clothoid, $color, $opacity, $start, $end);
+}
