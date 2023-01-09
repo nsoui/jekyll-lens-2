@@ -194,12 +194,12 @@ body {
 
 /* Basic */
 
-@media screen and (max-width: 480px) {
-  html,
-  body {
-    min-width: 320px;
-  }
-}
+// @media screen and (max-width: 480px) {
+//   html,
+//   body {
+//     min-width: 320px;
+//   }
+// }
 
 body {
   background: $bg-color;
@@ -1093,7 +1093,7 @@ body.loading #wrapper:before {
 
 /* Header */
 body {
-  padding: 4rem 0 0 0;
+  padding: 0rem 0 0 0;
 }
 
 $header-height: 4rem;
@@ -1112,8 +1112,8 @@ $header-height: 4rem;
   width: 100%;
   z-index: 10002;
   overflow: hidden;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
+  //position: fixed; /* Set the navbar to fixed position */
+  //top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   display: flex;
   flex-direction: row;
@@ -1211,19 +1211,7 @@ body.loading #header {
 }
 
 @media screen and (max-width: 980px) {
-  body {
-    padding: 4rem 0 0 0;
-  }
-
-  #header nav {
-    // a {
-    //   font-size: 0.9rem;
-    //   padding: 0 1rem;
-    // }
-    img {
-      padding-bottom: 5px;
-    }
-  } 
+   
   #header nav  span.text {
     display: none;
   }
@@ -1405,7 +1393,7 @@ body.loading #main .thumb {
   text-align: center;
   // padding: 2rem;
   max-width: 700px;
-  min-width: 320px;
+  // min-width: 320px;
   margin: 0 auto 0;
   display: flex;
   justify-content: space-between;
@@ -1422,7 +1410,7 @@ body.loading #main .thumb {
   /* background: #fff; */
   width: 100%;
   max-width: 700px;
-  min-width: 320px;
+  // min-width: 320px;
   margin: 0 auto 0;
   padding: 0.5rem;
   text-align: center;

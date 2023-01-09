@@ -89,6 +89,7 @@ image_position: "left center"
 
 sass:
     sass_dir: _sass
+    style: compressed
 
 ## Jekyll Configuration ##
 collections:
