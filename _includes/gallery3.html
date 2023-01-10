@@ -60,6 +60,16 @@
     function currentSlide(n) {
       showSlides(slideIndex = n);
     }
+
+    function Position(obj){
+      var currenttop = 0;
+      if (obj.offsetParent){
+        do{
+          currenttop += obj.offsetTop;
+        }while ((obj = obj.offsetParent));
+        return [currenttop];
+      }
+    }
     
     function showSlides(n) {
       let i;
@@ -84,8 +94,10 @@
       let url = slides[slideIndex-1].getAttribute("src-data");
       
       // Scroll to make the full picture and its miniature visibles
-      //gallery.scrollIntoView({behavior: "smooth"});//, block: "end", inline: "nearest"});
+      //gallery.scrollIntoView({behavior: "smooth" , block: "nearest", inline: "nearest"});
+      
       miniatures[slideIndex-1].scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});//, block: "end", inline: "nearest"});
+      window.scroll(0, Position(gallery));
       if (captionText)  captionText.innerHTML = dots[slideIndex-1].alt;
       if (urlElement) urlElement.setAttribute("href", url);
     }
