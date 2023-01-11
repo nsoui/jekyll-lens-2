@@ -1,52 +1,27 @@
     <footer id="about" class="panel">
-        <div class="inner split">
-            <div>
-                <section>
-                    <img class="lazy" src="{{ site.static_images_folder }}/spinner.svg"  data-src="{{ site.static_images_folder }}/me.jpg" data-srcset="" />
-                </section>
-            </div>
-            <div>
-                <section>
-                    <h2>{{ site.footer.headline }}</h2>
-                    <p>{{ site.footer.text }}</p>
-                </section>
-                <section>
-                    <h2>{{ site.footer.social_headline }}</h2>
-                    <ul class="icons">
-                    {% for link in site.social %}
-                        <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" >
-                            <span class="label">{{ link.label }}</span>
-                        </a></li>
-                    {% endfor %}
-                    </ul>
-                </section>
-                <p class="copyright">{{ site.copyright.name }}</p>
-            </div>
-        </div>
+        {% include about.html %}
     </footer>
     <footer id="contact" class="panel">
         <div class="inner">
-            
-                <div>
-                    <section>
-                        <h2>{{ site.contact.headline }}</h2>
-                        <form method="post" action="//formspree.io/{{ site.email }}" novalidate>
-                            <div class="field half first">
-                                <input type="text" name="name" required data-validation-required-message="{{ site.contact.name.warning }}" id="name" placeholder="{{ site.contact.name.text }}{{ .  | markdownify }}{{ end }}" />
-                            </div>
-                            <div class="field half">
-                                <input type="email" name="email" required data-validation-required-message="{{ site.contact.email.warning }}" id="email" placeholder="{{ site.contact.email.text }}" />
-                            </div>
-                            <div class="field">
-                                <textarea name="message" required data-validation-required-message="{{ site.contact.message.warning }}" id="message" rows="4" placeholder="{{ site.contact.message.text }}"></textarea>
-                            </div>
-                            <ul class="actions">
-                                <li><input type="submit" value="{{ site.contact.buttonText }}" class="special" /></li>
-                                <li><input type="reset" value="{{ site.contact.resetText }}" /></li>
-                            </ul>
-                        </form>
-                    </section>
-                </div>
-            
+            <div>
+                <section>
+                    <h2>{{ site.contact.headline }}</h2>
+                    <form method="post" action="//formspree.io/{{ site.contact.formsphere.email }}" novalidate>
+                        <div class="field half first">
+                            <input type="text" name="name" required data-validation-required-message="{{ site.contact.name.warning }}" id="name" placeholder="{{ site.contact.name.text }}{{ .  | markdownify }}{{ end }}" />
+                        </div>
+                        <div class="field half">
+                            <input type="email" name="email" required data-validation-required-message="{{ site.contact.email.warning }}" id="email" placeholder="{{ site.contact.email.text }}" />
+                        </div>
+                        <div class="field">
+                            <textarea name="message" required data-validation-required-message="{{ site.contact.message.warning }}" id="message" rows="4" placeholder="{{ site.contact.message.text }}"></textarea>
+                        </div>
+                        <ul class="actions">
+                            <li><input type="submit" value="{{ site.contact.buttonText }}" class="special" /></li>
+                            <li><input type="reset" value="{{ site.contact.resetText }}" /></li>
+                        </ul>
+                    </form>
+                </section>
+            </div>
         </div>
     </footer>

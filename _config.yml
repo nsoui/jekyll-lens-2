@@ -1,24 +1,36 @@
 ## Site Meta ##
 # The title of the website.
-title: "Nizar's Photography"
+title: Nizar's Photography
 # The description of the website
-description: "My photography, my Art: the world seen by my lens. "
+tagline: My photography, my art
+description: "My photography blog: the world through my lens."
 # Keywords/tags for you site.
 keywords: "nizar souissi, nezar souissi, photography, nezar souissi photography, niz'art photography, niz'art, nizar, nezar, souissi, zanzoor, dubai, tunis, tunisia, munich, alps, photography, blog, photography-blog, photo-blog"
 # Your copyright message.
 copyright: "Copyright &copy; 2022 - Nizar Souissi."
-
+logo: /assets/images/logo.webp
 language: "en-US"
+
+url: "https://souissi.eu"
 
 ## Site Configurations ##
 # 1st heading of the site.
 header: "Nizar's Photography"
-# 2nd heading/sub heading of the website.
-subheader: "Elastic Designs"
-# A description/bio of the website.
 
 # Facebook App ID
-facebook_app_id: "702222463690498"
+facebook:
+  app_id: "702222463690498"
+  publisher: "https://www.facebook.com/zphotons"
+  admins: "https://www.facebook.com/nizar.souissi/"
+
+webmaster_verifications:
+  google: 1234
+  bing: 1234
+  alexa: 1234
+  yandex: 1234
+  baidu: 1234
+  facebook: 1234
+
 
 footer: 
   headline: "Photography is more than a hobby"
@@ -26,31 +38,40 @@ footer:
   social_headline: "Follow me"
 
 social:
-  -
-    label: "Twitter"
-    url: "https://twitter.com/nezarsouissi"
-    icon: "twitter"
-  -
-    label: "Facebook"
-    url: "https://www.facebook.com/zphotons/"
-    icon: "facebook"
-  -
-    label: "Instagram"
-    url: "https://www.instagram.com/nezarsouissi/"
-    icon: "instagram"
-  -
-    label: "Github"
-    url: "https://github.com/nsoui"
-    icon: "github"
-  -
-    label: "LinkedIn"
-    url: "https://www.linkedin.com/in/nizarsouissi"
-    icon: "linkedin"
-
+  name: Nizar Souissi
+  links:
+    - https://twitter.com/nezarsouissi
+    - https://www.facebook.com/nizar.souissi
+    - https://www.linkedin.com/in/nizarsouissi
+    - https://github.com/nsoui
+    - https://www.instagram.com/nezarsouissi/
+  buttons:
+    -
+      label: "Twitter"
+      url: "https://twitter.com/nezarsouissi"
+      icon: "twitter"
+    -
+      label: "Facebook"
+      url: "https://www.facebook.com/zphotons/"
+      icon: "facebook"
+    -
+      label: "Instagram"
+      url: "https://www.instagram.com/nezarsouissi/"
+      icon: "instagram"
+    -
+      label: "Github"
+      url: "https://github.com/nsoui"
+      icon: "github"
+    -
+      label: "LinkedIn"
+      url: "https://www.linkedin.com/in/nizarsouissi"
+      icon: "linkedin"
 
 contact:
   realEmail: "nizar@souissi.eu"
   headline: "Get in touch"
+  formsphere:
+    email: "nizar@souissi.eu"
   buttonText: "Send"
   resetText: "Reset"
   name:
@@ -66,7 +87,7 @@ contact:
 # This is used as the link of the contact form. 
 # Your Formspree.io link will look like this
 # "https://formspree.io/f/{{ email }}"
-email: "nizar@souissi.eu"
+
 
 ## Gallery Configuration ##
 # If you modify this, also modify the `default.scope.path` key below.
@@ -91,44 +112,26 @@ sass:
     sass_dir: _sass
     style: compressed
 
-## Jekyll Configuration ##
-collections:
-  authors:
-    output: true
-
-defaults:
-  - scope:
-    # Should be same as the `gallery_dir` key above.
-      path: "gallery"
-    values:
-      image: true
-  - scope:
-      path: ""
-      type: "authors"
-    values:
-      layout: "author"
-  - scope:
-      path: "_posts"
-      type: "posts"
-      output: true
-      # permalink: /:collection/:name
-      permalink: images/:title/
-    values:
-      layout: "post"
-  - scope:
-      path: ""
-    values:
-      layout: "default"
 
 
 exclude:
   - vendor
   - Gemfile
   - OriginalPics
-
+  - firebase.json
+  - .firebase
+  - makefile
+  - firebase-debug.log
+  - README.md
+  - LICENSE
 
 # Tags pages 
 tag_page_layout: tag_page
 tag_page_dir: tag
 tag_permalink_style: pretty
 # 
+
+permalink: /posts/:title:output_ext
+
+plugins:
+  - jekyll-seo-tag
