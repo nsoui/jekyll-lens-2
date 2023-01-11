@@ -78,33 +78,33 @@ filtered_pics:
 	
 
 SRC_PICS := $(wildcard $(FILTERED_DIR)/*.jpg)
-THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.webp,$(SRC_PICS))
-SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.webp,$(SRC_PICS))
-LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.webp,$(SRC_PICS))
+THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.webP,$(SRC_PICS))
+SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.webP,$(SRC_PICS))
+LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.webP,$(SRC_PICS))
 
-MOGRIFY_CMD := mogrify -format webP -quality 80 -define webp:lossless=true
+MOGRIFY_CMD := mogrify -format webP -quality 80 -define webP:lossless=true
 
-$(THUMBS_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
+$(THUMBS_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(THUMBS_DIR) -thumbnail x250 $<
 
-$(SMALL_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
+$(SMALL_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(SMALL_DIR) -resize 600 $<
 
-$(LARGE_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
+$(LARGE_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
 	$(MOGRIFY_CMD) -path $(LARGE_DIR) -resize 1200 $<
 
 
 
 
-pics: filtered_pics $(THUMBS) $(SMALLPICS) $(LARGEPICS)
+pics: $(THUMBS) $(SMALLPICS) $(LARGEPICS)
 
 	
 
 build : 
-	docker start jekyll_builder || docker run -it --name jekyll_builder $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) jekyll build
+	docker start -ai jekyll_builder || docker run -it --name jekyll_builder $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) jekyll build --trace
 
 serve:
-	docker start jekyll_server || docker run -it --name jekyll_server $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) 
+	docker start -ai jekyll_server || docker run -it --name jekyll_server $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG)  
 
 compress:
 	find ./public/ -name '*.gz' -delete
