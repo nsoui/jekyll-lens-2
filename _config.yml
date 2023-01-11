@@ -133,5 +133,5 @@ tag_permalink_style: pretty
 
 permalink: /posts/:title:output_ext
 
-plugins:
-  - jekyll-seo-tag
+# plugins:
+#   - jekyll-seo-tag
