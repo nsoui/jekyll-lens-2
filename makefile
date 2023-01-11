@@ -24,11 +24,6 @@ PORTFLAGS  := -p 4000:4000
 
 NAMEFLAGS  := --name $(CNTNAME) --hostname $(CNTNAME)
 
-# -- }}}
-
-# {{{ -- docker targets
-
-HUGO_ENV:= HUGO_NUMWORKERMULTIPLIER=1
 
 all : build compress upload
 
@@ -102,14 +97,14 @@ $(LARGE_DIR)/%.webp: $(FILTERED_DIR)/%.jpg
 
 
 pics: filtered_pics $(THUMBS) $(SMALLPICS) $(LARGEPICS)
-	
+
 	
 
 build : 
-	$(HUGO_CMD) jekyll build
+	docker start jekyll_builder || docker run -it --name jekyll_builder $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) jekyll build
 
 serve:
-	$(HUGO_CMD)
+	docker start jekyll_server || docker run -it --name jekyll_server $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) 
 
 compress:
 	find ./public/ -name '*.gz' -delete
