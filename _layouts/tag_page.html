@@ -9,7 +9,12 @@ layout: default
             {% assign tag = page.tag %}
             {% assign quote = site.data.quotes[tag] %}
             {% if quote != nil %}
-                <blockquote author="{{ quote.author }}">“{{ quote.text }}”</blockquote>
+                <blockquote author="{{ quote.author }}">“{{ quote.quote }}”</blockquote>
+                {% if quote.text != nil %}
+                <div class="paragraph">
+                    {{ quote.text | markdownify }}
+                </div>
+                {% endif %}
             {% endif %}
         </div>
     </section>
