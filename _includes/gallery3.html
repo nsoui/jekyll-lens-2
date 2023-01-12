@@ -95,9 +95,10 @@
       
       // Scroll to make the full picture and its miniature visibles
       //gallery.scrollIntoView({behavior: "smooth" , block: "nearest", inline: "nearest"});
+      window.scroll(0, Position(gallery));
       
       miniatures[slideIndex-1].scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});//, block: "end", inline: "nearest"});
-      window.scroll(0, Position(gallery));
+      
       if (captionText)  captionText.innerHTML = dots[slideIndex-1].alt;
       if (urlElement) urlElement.setAttribute("href", url);
     }
