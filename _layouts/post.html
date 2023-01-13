@@ -5,10 +5,10 @@ layout: default
 <div id="main">
     <section id="singleImagePage">
         <div class="img-container">
-            <img src="" class="lazy single-page-image" 
-            data-src="" 
-            data-srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w" 
-            srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w">
+            <img src="" class="single-page-image" 
+            srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w"
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" /> 
+            >
         </div>
         <div class="img-description">
             <div class="img-title">
