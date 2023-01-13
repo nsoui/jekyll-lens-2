@@ -17,17 +17,7 @@
         </div>
         
     </div>
-    <div class="modal-content">
-      <!-- <div class="overlay top left right flex flex-row flex-space-between">
-        <div>
-          <a class="button" onclick="plusSlides(-1)">&#10094;</a>
-        </div>
-        <h4 id="caption"></h4>
-        <div>
-          <a class="button" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-      </div> -->
-      
+    <div class="modal-content">      
       <div class="overlay top left right down-to-middle shade-scrim-to-bottom flex flex-row flex-space-between">
         <div class="overlay top left right flex flex-row flex-space-between">          
           <h4 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(-1)" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/left.svg"/></a></h4>
@@ -96,7 +86,7 @@
       // Scroll to make the full picture and its miniature visibles
       //gallery.scrollIntoView({behavior: "smooth" , block: "nearest", inline: "nearest"});
       window.scroll(0, Position(gallery));
-      
+
       miniatures[slideIndex-1].scrollIntoView({behavior: "smooth", block: "nearest", inline: "nearest"});//, block: "end", inline: "nearest"});
       
       if (captionText)  captionText.innerHTML = dots[slideIndex-1].alt;
