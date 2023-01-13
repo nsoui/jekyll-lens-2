@@ -1,6 +1,18 @@
 <header id="header">
     {% assign current = page.url %}
     {% assign elements = current | split: "/" %}
+    <script>
+        var is_root = location.pathname == "/"; //Equals true if we're at the root
+        function isTagPath(path)
+        {
+            return path.includes("/tag/");
+        }
+        function isPostPath(path){
+            return path.includes("/posts/");
+        }
+        console.log("Location: " + location.pathname);
+        console.log("Referrer: " + document.referrer);
+    </script>
     <nav>
         <ul>
             <li>
@@ -13,16 +25,23 @@
                         <span class="text">{{ site.title }}</span>
                     {% endif %} -->
                 </a>
-            </li>
-            {% if false and elements.size > 1  %}
-            <li>
-                <span class="text not-clickable">> {{ elements[-1] }}</span>
-            </li>
-            {% endif %}
+            </li>         
+            
             <li>
                 <h3>
-                    <script>
-                        document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/left.svg"/></a>');
+                    <script>                        
+                        if (isTagPath(location.pathname) )
+                                document.write('<a href="/"><img class="icon" src="{{ site.static_images_folder }}/home.svg"/></a>');
+                    </script>
+                    
+                </h3>
+            </li>
+            
+            <li>
+                <h3>
+                    <script>                        
+                        if (isPostPath(location.pathname) && isTagPath(document.referrer) )
+                                document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/up.svg"/></a>');
                     </script>
                 </h3>
             </li>
