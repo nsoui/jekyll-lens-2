@@ -1,62 +1,38 @@
 (function($) {
 
-	skel.breakpoints({
-		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 980px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)'
-	});
-
 	$(function() {
 
 		var	$window = $(window),
 			$body = $('body'),
 			$wrapper = $('#wrapper');
 
-		// Hack: Enable IE workarounds.
-			if (skel.vars.IEVersion < 12)
-				$body.addClass('ie');
+			// Add (and later, on load, remove) "loading" class.
+			$body.addClass('loading');
 
-		// Touch?
-			if (skel.vars.mobile)
-				$body.addClass('touch');
+			$window.on('load', function() {
+				window.setTimeout(function() {
+					$body.removeClass('loading');
+				}, 100);
+			});
 
-		// Transitions supported?
-			if (skel.canUse('transition')) {
+		// Prevent transitions/animations on resize.
+			var resizeTimeout;
 
-				// Add (and later, on load, remove) "loading" class.
-					$body.addClass('loading');
+			$window.on('resize', function() {
 
-					$window.on('load', function() {
-						window.setTimeout(function() {
-							$body.removeClass('loading');
-						}, 100);
-					});
+				window.clearTimeout(resizeTimeout);
 
-				// Prevent transitions/animations on resize.
-					var resizeTimeout;
+				$body.addClass('resizing');
 
-					$window.on('resize', function() {
+				resizeTimeout = window.setTimeout(function() {
+					$body.removeClass('resizing');
+				}, 100);
 
-						window.clearTimeout(resizeTimeout);
-
-						$body.addClass('resizing');
-
-						resizeTimeout = window.setTimeout(function() {
-							$body.removeClass('resizing');
-						}, 100);
-
-					});
-
-			}
-
+			});
 		// Scroll back to top.
 			$window.scrollTop(0);
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
-
+		
 		// Panels.
 			var $panels = $('.panel');
 
@@ -283,47 +259,6 @@
 
 				});
 			
-			// Poptrox.
-				$main.poptrox({
-					baseZIndex: 20000,
-					caption: function($a) {
-
-						var s = '';
-
-						$a.nextAll().each(function() {
-							s += this.outerHTML;
-						});
-
-						return s;
-
-					},
-					fadeSpeed: 300,
-					onPopupClose: function() { $body.removeClass('modal-active'); },
-					onPopupOpen: function() { $body.addClass('modal-active'); },
-					overlayOpacity: 0,
-					popupCloserText: '',
-					popupHeight: 150,
-					popupLoaderText: '',
-					popupSpeed: 300,
-					popupWidth: 150,
-					selector: '.thumb > a.image',
-					usePopupCaption: true,
-					usePopupCloser: true,
-					usePopupDefaultStyling: false,
-					usePopupForceClose: true,
-					usePopupLoader: true,
-					usePopupNav: true,
-					windowMargin: 50
-				});
-
-				// Hack: Set margins to 0 when 'xsmall' activates.
-					skel
-						.on('-xsmall', function() {
-							$main[0]._poptrox.windowMargin = 50;
-						})
-						.on('+xsmall', function() {
-							$main[0]._poptrox.windowMargin = 0;
-						});
 
 	});
 
