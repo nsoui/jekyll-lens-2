@@ -101,7 +101,7 @@ pics: $(THUMBS) $(SMALLPICS) $(LARGEPICS)
 	
 
 build : 
-	docker start -ai jekyll_builder || docker run -it --name jekyll_builder $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG) jekyll build --trace
+	docker start -ai jekyll_builder || docker run -it --name jekyll_builder $(RUNFLAGS) $(MOUNTFLAGS) $(IMAGETAG) jekyll build --destination _build --trace
 
 serve:
 	docker start -ai jekyll_server || docker run -it --name jekyll_server $(RUNFLAGS) $(PORTFLAGS) $(MOUNTFLAGS) $(IMAGETAG)  
