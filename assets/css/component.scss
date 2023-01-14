@@ -168,74 +168,64 @@ q {
 		flex-flow: column;
 		flex-basis: content;
 		justify-content: flex-start;
-	}
-	  
-	  /* Modal Content */
-	  .modal-content {
-		position: relative;
-		/* background-color: $text-color; */
-		// margin: auto;
-		padding: 0;
-		/* width: 90%;
-		max-width: 1200px; */
-		flex-grow: 2;
-		display: flex;
-		flex-flow: column;
-		justify-content: flex-start;
-	  
-	  
-	}
-	  
-	  
-	  
-	  
-	  /* Hide the slides by default */
-	  .mySlides {
-		display: none;
-		text-align: center;
-		display: flex;
-		flex-flow: row wrap;
-		align-items: flex-end;
-		justify-content: center;
-		padding: 0.1em;
 
-		img {
-			// max-height: calc(75vh - 4em );
-			max-height: calc(100vh - 4rem - 110px);
-			// width: 100%;
-			max-width: 100%;
-			//max-height: 70vh;
+		.table {
+			display: flex;
+			border-collapse: collapse;
+			width: 100%;
+			// -webkit-overflow-scrolling: touch; 
+			flex-wrap: nowrap;
+			overflow-x: hidden;
+			scroll-behavior: smooth;
+		  
+			.item {
+			  flex: 1;
+			  flex-grow: 1;
+			  img {
+				display: block;
+				width: auto;
+				max-height: 10vh;
+			  }
 			}
+		
+			.card {
+			  flex: 0 0 auto;
+			} 
+		  }
+	
+	  
+		/* Modal Content */
+		.modal-content {
+			position: relative;
+			padding: 0;
+			flex-grow: 2;
+			display: flex;
+			flex-flow: column;
+			justify-content: flex-start;
+			height: calc(100vh - 140px);	  
+		
+		
+			/* Hide the slides by default */
+			.mySlides {
+				display: none;
+				text-align: center;
+				display: flex;
+				flex-flow: row wrap;
+				align-items: flex-end;
+				justify-content: center;
+				padding: 0.1em;
+
+				img {
+					// max-height: calc(75vh - 4em );
+					max-height: calc(100vh - 4rem - 110px);
+					// width: 100%;
+					max-width: 100%;
+					//max-height: 70vh;
+					}
+			}
+		}
 	}
 }
-
-
-@media screen and (min-width: 979px) {
-	.table {
-	  display: flex;
-	  border-collapse: collapse;
-	  width: 100%;
-	  // -webkit-overflow-scrolling: touch; 
-	  flex-wrap: nowrap;
-	  overflow-x: hidden;
-	  scroll-behavior: smooth;
-	
-	  .item {
-		flex: 1;
-		flex-grow: 1;
-		img {
-		  display: block;
-		  width: auto;
-		  max-height: 10vh;
-		}
-	  }
-  
-	  .card {
-		flex: 0 0 auto;
-	  } 
-	}
-  }
-  
 
 @media screen and (max-width: 980px) {
   
