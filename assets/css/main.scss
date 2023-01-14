@@ -298,7 +298,7 @@ h6 {
   .icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin: 0 0.5rem;
+    margin: 0 0.25rem;
     filter: $svg-filter;
     &.inverted-colors {
       filter: $svg-filter-inverted;
@@ -1134,7 +1134,7 @@ $header-height: 4rem;
       li {
         display: inline-block;
         padding: 0;
-        margin: 0 1rem;
+        margin: 0 0.5rem;
       }
     }
   }
@@ -1194,7 +1194,7 @@ body.loading #header {
     // background-image: linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.1)), url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg');
     background-image: url('/gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake.webP');
     background-size: cover;
-    background-position: center center;
+    background-position: top left;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
