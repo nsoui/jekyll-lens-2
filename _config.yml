@@ -124,6 +124,8 @@ exclude:
   - firebase-debug.log
   - README.md
   - LICENSE
+  - _build
+  - _site
 
 # Tags pages 
 tag_page_layout: tag_page
@@ -135,3 +137,5 @@ permalink: /posts/:title:output_ext
 
 # plugins:
 #   - jekyll-seo-tag
+plugins:
+  - jekyll-image-size

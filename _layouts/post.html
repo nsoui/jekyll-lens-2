@@ -5,9 +5,14 @@ layout: default
 <div id="main">
     <section id="singleImagePage">
         <div class="img-container">
-            <img src="" class="single-page-image" 
-            srcset="{{ site.thumb_dir }}/{{  page.image }} 338w, {{ site.small_pics_dir }}/{{  page.image }} 600w, {{ site.large_pics_dir }}/{{  page.image }} 1200w"
-            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" />
+            <img class="single-page-image" 
+            {% assign thumbnail = site.thumb_dir | append: "/" | append: page.image %}
+            {% assign smallpic = site.small_pics_dir | append: "/" | append: page.image %}
+            {% assign largepic = site.large_pics_dir | append: "/" | append: page.image %}
+            src="{{ smallpic }}"
+            srcset="{{ thumbnail }} {% imagesize thumbnail:width %}w, {{ smallpic }} {% imagesize smallpic:width %}w, {{ largepic }} {% imagesize largepic:width %}w"
+            sizes="(max-width: {% imagesize thumbnail:width %}px) {% imagesize thumbnail:width %}px, (max-width: {% imagesize smallpic:width %}px) {% imagesize smallpic:width %}px, {% imagesize largepic:width %}px" 
+            />
         </div>
         <div class="img-description">
             <div class="img-title">

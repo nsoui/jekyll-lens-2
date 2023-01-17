@@ -4,10 +4,12 @@
         <div class="table" id="miniaturestable">
           {% for post in include.posts %}
             <div class="column item card">
+              {% assign thumbnail = site.thumb_dir }} | append: "/" | append: post.image %}
               <img class="demo contain lazy"               
-              data-srcset="{{ site.thumb_dir }}/{{ post.image }}" 
+              data-srcset="{{ thumbnail }}" 
               onclick="currentSlide( {{ forloop.index }} );" 
               alt="{{ post.title }} ({{ forloop.index }} / {{ include.posts.size }})" 
+              {% imagesize thumbnail:props %}
               >
             </div>
           {% endfor %}
@@ -29,9 +31,13 @@
 
       {% for post in include.posts %}
         <div class="mySlides" style="display: none;" src-data="{{ post.url }}" index="{{ forloop.index }}" of="{{ include.posts.size }}">  
+          {% assign fallback = site.small_pics_dir }} | append: "/" | append: post.image %}
             <img src="{{ site.static_images_folder }}/spinner.svg" class="lazy" 
+            data-src="{{ fallback }}" 
             data-srcset="{{ site.thumb_dir }}/{{ post.image }} 342w,  {{ site.small_pics_dir }}/{{ post.image }} 600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w" 
-            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" /> 
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" 
+            
+            /> 
         </div>
       {% endfor %}
     </div>

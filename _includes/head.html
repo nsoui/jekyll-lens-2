@@ -37,6 +37,7 @@
 {% endif %}
 <meta property="og:image" content="{{ socialImage | absolute_url }}">
 <meta property="twitter:image" content="{{ socialImage | absolute_url }}">
+{% imagesize socialImage:opengraph %}
 
 
 {% if page.title %}
@@ -93,8 +94,6 @@
 
 
 
-<!-- <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css"> -->
-<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
 <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/component.css">
@@ -104,10 +103,6 @@
 
 
 <link rel="preload" as="script" href="/assets/js/jquery-3.6.3.slim.min.js">
-<!-- <link rel="preload" as="script" href="/assets/js/jquery.poptrox.min.js">  -->
-<!-- <link rel="preload" as="script" href="/assets/js/skel.min.js"> -->
- <!-- <link rel="preload" as="script" href="/assets/js/util.js">  -->
 <link rel="preload" as="script" href="/assets/js/main.js">
 <link rel="preload" as="script" href="/assets/js/lazy.js">
-
 <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
