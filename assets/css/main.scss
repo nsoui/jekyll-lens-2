@@ -165,6 +165,10 @@ body {
 
 /* .thumb img { width: 100%; display: block; } */
 
+img {
+  object-fit: contain;
+}
+
 .flexrow {
   display: flex;
   flex-wrap: wrap;
