@@ -92,8 +92,9 @@ contact:
 ## Gallery Configuration ##
 # If you modify this, also modify the `default.scope.path` key below.
 thumb_dir: "/gallery/thumbs"
-small_pics_dir: "/gallery/small"
-large_pics_dir: "/gallery/large"
+large_thumb_dir: "/gallery/lrgthumbs"
+small_pics_dir: "/gallery/pics"
+large_pics_dir: "/gallery/lrgpics"
 static_images_folder: "/assets/images"
 
 

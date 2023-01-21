@@ -64,9 +64,11 @@ full_height := 900
 # Picture handling
 
 FILTERED_DIR := OriginalPics
+
 THUMBS_DIR := gallery/thumbs
-SMALL_DIR := gallery/small
-LARGE_DIR := gallery/large
+LRGTHUMBS_DIR := gallery/lrgthumbs
+PICS_DIR := gallery/pics
+LRGPICS_DIR := gallery/lrgpics
 
 
 
@@ -79,24 +81,33 @@ filtered_pics:
 
 SRC_PICS := $(wildcard $(FILTERED_DIR)/*.jpg)
 THUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(THUMBS_DIR)/%.webP,$(SRC_PICS))
-SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(SMALL_DIR)/%.webP,$(SRC_PICS))
-LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LARGE_DIR)/%.webP,$(SRC_PICS))
+LARGETHUMBS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LRGTHUMBS_DIR)/%.webP,$(SRC_PICS))
+SMALLPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(PICS_DIR)/%.webP,$(SRC_PICS))
+LARGEPICS := $(patsubst $(FILTERED_DIR)/%.jpg,$(LRGPICS_DIR)/%.webP,$(SRC_PICS))
 
-MOGRIFY_CMD := mogrify -format webP -quality 80 -define webP:lossless=true
+MOGRIFY_CMD := mogrify -format webP -define webP:lossless=false
+
+
 
 $(THUMBS_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
-	$(MOGRIFY_CMD) -path $(THUMBS_DIR) -thumbnail x250 $<
+	$(MOGRIFY_CMD) -quality 60 -path $(THUMBS_DIR) -thumbnail x110 $<
 
-$(SMALL_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
-	$(MOGRIFY_CMD) -path $(SMALL_DIR) -resize 600 $<
+$(LRGTHUMBS_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
+	$(MOGRIFY_CMD) -quality 60 -path $(LRGTHUMBS_DIR) -thumbnail x250 $<
 
-$(LARGE_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
-	$(MOGRIFY_CMD) -path $(LARGE_DIR) -resize 1200 $<
+$(PICS_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
+	$(MOGRIFY_CMD) -quality 70 -path $(PICS_DIR) -resize 600 $<
 
+$(LRGPICS_DIR)/%.webP: $(FILTERED_DIR)/%.jpg
+	$(MOGRIFY_CMD) -quality 80 -path $(LRGPICS_DIR) -resize 1200 $<
 
+gallery/%:
+	mkdir -p $@
 
+picdirs: $(THUMBS_DIR) $(LRGTHUMBS_DIR) $(PICS_DIR) $(LRGPICS_DIR)
+	
 
-pics: $(THUMBS) $(SMALLPICS) $(LARGEPICS)
+pics: picdirs $(THUMBS) $(LARGETHUMBS) $(SMALLPICS) $(LARGEPICS)
 
 	
 

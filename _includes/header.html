@@ -18,7 +18,8 @@
             <li>
                 <h3>
                 <a href="/">
-                    <img class="logo" src="{{ site.static_images_folder }}/favicon.png" />
+                    {% assign favicon= site.static_images_folder | append: "/favicon.png" %}
+                    <img class="logo" src="{{ favicon }}" alt="favicon" {% imagesize favicon:props %} />
                     <span class="text">{{ site.title }}</span>
                     <!-- {% if elements.size > 2  %}
                         <span class="material-symbols-outlined">home</span>
@@ -48,7 +49,7 @@
 			<li>
                 <h3>
                     <a href="{{ link.url }}">
-                        <img class="icon" src="{{ site.static_images_folder }}/{{ link.icon }}.svg"/><span class="text">{{ link.label }}</span>
+                        <img class="icon" alt="icon" src="{{ site.static_images_folder }}/{{ link.icon }}.svg"/><span class="text">{{ link.label }}</span>
                     </a>
                 </h3>
 			</li>

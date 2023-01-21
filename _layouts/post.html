@@ -6,7 +6,7 @@ layout: default
     <section id="singleImagePage">
         <div class="img-container">
             <img class="single-page-image" 
-            {% assign thumbnail = site.thumb_dir | append: "/" | append: page.image %}
+            {% assign thumbnail = site.large_thumb_dir | append: "/" | append: page.image %}
             {% assign smallpic = site.small_pics_dir | append: "/" | append: page.image %}
             {% assign largepic = site.large_pics_dir | append: "/" | append: page.image %}
             src="{{ smallpic }}"
@@ -20,9 +20,7 @@ layout: default
                 <div class="exif">
                     <ul>
                         <li><h5><img class="icon" src="{{ site.static_images_folder }}/loyalty.svg"/>{{ page | tags }}</h5></li>
-                        <li></li>
                         <li><h5><img class="icon" src="{{ site.static_images_folder }}/location.svg"/>{{ page.city }}, {{ page.country }}</h5></li>
-                        
                         <li><h5><img class="icon" src="{{ site.static_images_folder }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
                     </ul>
                 </div>

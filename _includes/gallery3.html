@@ -4,7 +4,7 @@
         <div class="table" id="miniaturestable">
           {% for post in include.posts %}
             <div class="column item card">
-              {% assign thumbnail = site.thumb_dir }} | append: "/" | append: post.image %}
+              {% assign thumbnail = site.thumb_dir | append: "/" | append: post.image %}
               <img class="demo contain lazy"               
               data-srcset="{{ thumbnail }}" 
               onclick="currentSlide( {{ forloop.index }} );" 

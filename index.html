@@ -8,7 +8,8 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
   
 <section class="hero">
   <div id="welcome" class="hero-inner">
-    <img src="{{ site.static_images_folder }}/logo.webp"/>
+    {% assign logo= site.static_images_folder | append: "/logo.webp" %}
+    <img src="{{logo }}" alt="logo"   {% imagesize logo:props %}   />
     <div class="buttons">
       <a href="#categories" class="button inverted-colors">Categories</a>
       <a href="#tags" class="button inverted-colors">Tags</a>
@@ -35,7 +36,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
         <li>
           <article class="thumb">
             <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
-              {% assign thumbnail = site.thumb_dir | append: "/" | append: post.image %}
+              {% assign thumbnail = site.large_thumb_dir | append: "/" | append: post.image %}
               <img src="{{ thumbnail }}" alt="{{ categoryName }}"  {% imagesize thumbnail:props %}   />
               <div class="overlay top bottom right left inverted-colors shade shade-scrim-to-top">
                 <h4 class="overlay bottom right left">{{ categoryName }}</h4>
