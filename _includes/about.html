@@ -1,7 +1,8 @@
 <div class="inner split">
     <div>
         <section>
-            <img class="lazy" src="{{ site.static_images_folder }}/spinner.svg"  data-src="{{ site.static_images_folder }}/me.jpg" data-srcset="" />
+            {% assign image = site.static_images_folder | append: "/me.jpg" %}
+            <img class="lazy" src="{{ site.static_images_folder }}/spinner.svg"  data-src="{{ image }}" data-srcset="" alt="me" {% imagesize image:props %} />
         </section>
     </div>
     <div>
@@ -12,7 +13,7 @@
         <section>
             <h2>{{ site.footer.social_headline }}</h2>
             <ul class="icons">
-            {% for link in site.social %}
+            {% for link in site.social.buttons %}
                 <li><a href="{{ link.url }}" target="_blank" rel="noopener noreferrer" >
                     <span class="label">{{ link.label }}</span>
                 </a></li>
