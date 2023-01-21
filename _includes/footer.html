@@ -6,7 +6,7 @@
             <div>
                 <section>
                     <h2>{{ site.contact.headline }}</h2>
-                    <form method="post" action="//formspree.io/{{ site.contact.formsphere.email }}" novalidate>
+                    <form method="POST" action="https://formspree.io/f/{{ site.contact.formsphere.email }}" novalidate>
                         <div class="field half first">
                             <input type="text" name="name" required data-validation-required-message="{{ site.contact.name.warning }}" id="name" placeholder="{{ site.contact.name.text }}{{ .  | markdownify }}{{ end }}" />
                         </div>
