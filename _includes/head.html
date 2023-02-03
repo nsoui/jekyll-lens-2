@@ -33,7 +33,7 @@
 
 {% assign socialImage = site.logo %}
 {% if page.image %}
-  {% assign socialImage = site.large_pics_dir | append: "/" | append: page.image  %}
+  {% assign socialImage = site.pics.dirs.large | append: "/" | append: page.image  %}
 {% endif %}
 <meta property="og:image" content="{{ socialImage | absolute_url }}">
 <meta property="twitter:image" content="{{ socialImage | absolute_url }}">
@@ -70,8 +70,8 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-02-26T00:00:00+00:00","datePublished":"2022-02-26T00:00:00+00:00","description":"My photography blog: the world through my lens.","headline":"Arab Falconer","image":"https://souissi.eu/2022-02-26-172304-arab-falconer.webP","mainEntityOfPage":{"@type":"WebPage","@id":"https://souissi.eu/posts/17-23-04-arab-falconer.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://souissi.eu/assets/images/logo.webp"}},"url":"https://souissi.eu/posts/17-23-04-arab-falconer.html"}</script>
 <!-- End Jekyll SEO tag -->
 
-<link rel="icon" type="image/png" href="{{ site.static_images_folder }}/favicon.png" />
-<link rel="shortcut icon" type="image/png" href="{{ site.static_images_folder }}/favicon.png">
+<link rel="icon" type="image/png" href="{{ site.pics.dirs.static }}/favicon.png" />
+<link rel="shortcut icon" type="image/png" href="{{ site.pics.dirs.static }}/favicon.png">
 
 
 

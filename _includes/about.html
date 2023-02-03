@@ -1,8 +1,8 @@
 <div class="inner split">
     <div>
         <section>
-            {% assign image = site.static_images_folder | append: "/me.jpg" %}
-            <img class="lazy" src="{{ site.static_images_folder }}/spinner.svg"  data-src="{{ image }}" data-srcset="" alt="me" {% imagesize image:props %} />
+            {% assign image = site.pics.dirs.static | append: "/me.jpg" %}
+            <img class="lazy" src="{{ site.pics.dirs.static }}/spinner.svg"  data-src="{{ image }}" data-srcset="" alt="me" {% imagesize image:props %} />
         </section>
     </div>
     <div>

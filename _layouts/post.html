@@ -6,9 +6,9 @@ layout: default
     <section id="singleImagePage">
         <div class="img-container">
             <img class="single-page-image" 
-            {% assign thumbnail = site.large_thumb_dir | append: "/" | append: page.image %}
-            {% assign smallpic = site.small_pics_dir | append: "/" | append: page.image %}
-            {% assign largepic = site.large_pics_dir | append: "/" | append: page.image %}
+            {% assign thumbnail = site.pics.dirs.small | append: "/" | append: page.image %}
+            {% assign smallpic = site.pics.dirs.medium | append: "/" | append: page.image %}
+            {% assign largepic = site.pics.dirs.large | append: "/" | append: page.image %}
             src="{{ smallpic }}"
             srcset="{{ thumbnail }} {% imagesize thumbnail:width %}w, {{ smallpic }} {% imagesize smallpic:width %}w, {{ largepic }} {% imagesize largepic:width %}w"
             sizes="(max-width: {% imagesize thumbnail:width %}px) {% imagesize thumbnail:width %}px, (max-width: {% imagesize smallpic:width %}px) {% imagesize smallpic:width %}px, {% imagesize largepic:width %}px" 
@@ -19,20 +19,20 @@ layout: default
                 <div class="title"><h3>{{ page.title }}</h3></div>
                 <div class="exif">
                     <ul>
-                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/loyalty.svg"/>{{ page | tags }}</h5></li>
-                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/location.svg"/>{{ page.city }}, {{ page.country }}</h5></li>
-                        <li><h5><img class="icon" src="{{ site.static_images_folder }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
+                        <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/loyalty.svg"/>{{ page | tags }}</h5></li>
+                        <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/location.svg"/>{{ page.city }}, {{ page.country }}</h5></li>
+                        <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/copyright.svg"/>Copyright souissi.eu {{ page.date | date: "%B %Y" }}</li>
                     </ul>
                 </div>
             </div>
             <div class="exif">
                 <ul>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/photo_camera.svg"/>{{ page.camera }}</h5></li>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/lens.svg"/>{{ page.lens }}</h5></li>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/focal_length.svg"/>{{ page.focallength }} mm</h5></li>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/shutter_speed.svg"/>{{ page.exposure }} s</h5></li>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/fstop.svg"/>f/{{ page.fstop }} </h5></li>
-                    <li><h5><img class="icon" src="{{ site.static_images_folder }}/iso.svg"/>iso {{ page.iso }}</h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/photo_camera.svg"/>{{ page.camera }}</h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/lens.svg"/>{{ page.lens }}</h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/focal_length.svg"/>{{ page.focallength }} mm</h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/shutter_speed.svg"/>{{ page.exposure }} s</h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/fstop.svg"/>f/{{ page.fstop }} </h5></li>
+                    <li><h5><img class="icon" src="{{ site.pics.dirs.static }}/iso.svg"/>iso {{ page.iso }}</h5></li>
                     
                     <!-- <li><i class="fa fa-calendar fa-fw"></i>{{ page.date | date: "%B %Y" }}</h5></li> -->
                     

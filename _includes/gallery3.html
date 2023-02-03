@@ -4,7 +4,7 @@
         <div class="table" id="miniaturestable">
           {% for post in include.posts %}
             <div class="column item card">
-              {% assign thumbnail = site.thumb_dir | append: "/" | append: post.image %}
+              {% assign thumbnail = site.pics.dirs.thumb | append: "/" | append: post.image %}
               <img class="demo contain lazy"               
               data-srcset="{{ thumbnail }}" 
               onclick="currentSlide( {{ forloop.index }} );" 
@@ -19,24 +19,23 @@
     <div class="modal-content">      
       <div class="overlay top left right down-to-middle shade-scrim-to-bottom flex flex-row flex-space-between">
         <div class="overlay top left right flex flex-row flex-space-between">          
-          <h4 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(-1)" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/left.svg"/></a></h4>
+          <h4 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(-1)" title="Previous"><img class="icon" src="{{ site.pics.dirs.static }}/left.svg"/></a></h4>
           <div class="flex flex-row">
             <h4 id="caption" class="inverted-colors">{{ forloop.index }} / {{ include.posts.size }}</h4>
-            <h4 class="inverted-colors"><a class="" id="posturl" href="{{ post.url }}"><img class="icon inverted-colors" src="{{ site.static_images_folder }}/info.svg"/></a></h4>
+            <h4 class="inverted-colors"><a class="" id="posturl" href="{{ post.url }}"><img class="icon inverted-colors" src="{{ site.pics.dirs.static }}/info.svg"/></a></h4>
           </div>
-          <h4 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(1)" title="Next"><img class="icon" src="{{ site.static_images_folder }}/right.svg"/></a></h4>
+          <h4 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(1)" title="Next"><img class="icon" src="{{ site.pics.dirs.static }}/right.svg"/></a></h4>
       </div>
       </div>
       
 
       {% for post in include.posts %}
         <div class="mySlides" style="display: none;" src-data="{{ post.url }}" index="{{ forloop.index }}" of="{{ include.posts.size }}">  
-          {% assign fallback = site.small_pics_dir }} | append: "/" | append: post.image %}
-            <img src="{{ site.static_images_folder }}/spinner.svg" class="lazy" 
+          {% assign fallback = site.pics.dirs.medium }} | append: "/" | append: post.image %}
+            <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" 
             data-src="{{ fallback }}" 
-            data-srcset="{{ site.thumb_dir }}/{{ post.image }} 342w,  {{ site.small_pics_dir }}/{{ post.image }} 600w, {{ site.large_pics_dir }}/{{ post.image }} 1200w" 
+            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w" 
             sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" 
-            
             /> 
         </div>
       {% endfor %}

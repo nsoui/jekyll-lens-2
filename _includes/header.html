@@ -18,7 +18,7 @@
             <li>
                 <h3>
                 <a href="/">
-                    {% assign favicon= site.static_images_folder | append: "/favicon.png" %}
+                    {% assign favicon= site.pics.dirs.static | append: "/favicon.png" %}
                     <img class="logo" src="{{ favicon }}" alt="favicon" {% imagesize favicon:props %} />
                     <span class="text">{{ site.title }}</span>
                     <!-- {% if elements.size > 2  %}
@@ -36,7 +36,7 @@
                 <h3>
                     <script>                        
                         if (isPostPath(location.pathname) && isTagPath(document.referrer) )
-                                document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.static_images_folder }}/up.svg"/></a>');
+                                document.write('<a href="' + document.referrer + '" title="Previous"><img class="icon" src="{{ site.pics.dirs.static }}/up.svg"/></a>');
                     </script>
                 </h3>
             </li>
@@ -49,7 +49,7 @@
 			<li>
                 <h3>
                     <a href="{{ link.url }}">
-                        <img class="icon" alt="icon" src="{{ site.static_images_folder }}/{{ link.icon }}.svg"/><span class="text">{{ link.label }}</span>
+                        <img class="icon" alt="icon" src="{{ site.pics.dirs.static }}/{{ link.icon }}.svg"/><span class="text">{{ link.label }}</span>
                     </a>
                 </h3>
 			</li>

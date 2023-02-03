@@ -65,17 +65,17 @@ full_height := 900
 
 FILTERED_DIR := OriginalPics
 
-THUMBS_DIR := gallery/thumbs
-LRGTHUMBS_DIR := gallery/lrgthumbs
-PICS_DIR := gallery/pics
-LRGPICS_DIR := gallery/lrgpics
+THUMBS_DIR := gallery/thumb
+LRGTHUMBS_DIR := gallery/small
+PICS_DIR := gallery/medium
+LRGPICS_DIR := gallery/large
 
 
 
 filtered_pics: 
 	processpictures.py  -jekyll -skip-newer-targets -overwrite -keep-original-name -dest $(FILTERED_DIR) -paths $(HOME)/Pictures/Social/*.jpg 
 	# for fff in OriginalPics/*.md; do echo sed -i -e 's/\.jpg/\.webP/g' $$fff; done
-	sed -i -e 's/\.jpg/\.webP/g' OriginalPics/*.md
+	sed -i .bak 's/\.jpg/\.webP/g' OriginalPics/*.md
 	mv -f OriginalPics/*.md _posts/
 	
 
