@@ -231,21 +231,21 @@ select,
 textarea {
   color: $text-color;
   font-family: "Lato", sans-serif;
-  font-size: 14pt;
+  font-size: 18pt;
   font-weight: 300;
   letter-spacing: 0.025rem;
   line-height: 1.65;
   @media screen and (max-width: 1680px) {
-    font-size: 12pt;
+    font-size: 16pt;
   }
 
   @media screen and (max-width: 736px) {
-    font-size: 10pt;
+    font-size: 14pt;
     
   }
 
   @media screen and (max-width: 480px) {
-    font-size: 8pt;
+    font-size: 12pt;
   }
 }
 
@@ -1530,8 +1530,6 @@ ul.cloud[data-show-value] a::after {
   }  
 }
 
-
-
 .overlay {
 	position: absolute;
 	z-index: 100;
@@ -1599,6 +1597,4 @@ ul.cloud[data-show-value] a::after {
 		padding: 10px;
 	}
 }
-
-
 
