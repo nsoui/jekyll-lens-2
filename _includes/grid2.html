@@ -1,0 +1,14 @@
+<section class="thumbnails">
+  <div class="grid2">
+    <div class="grid-container">
+      {% for post in include.posts %}
+      <a href="{{ post.url }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
+        <div>
+          <img class='grid-item' src="{{ site.pics.dirs.small }}/{{ post.image }}" alt="{{ post.image }}">
+          <h5>{{ post.title }}</h5>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

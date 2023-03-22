@@ -1,0 +1,29 @@
+<section class="thumbnails">
+  <div class="grid3">
+    {% for column in (0..2) %}
+    <div class="column">
+      {% for post in include.posts %}
+        {% assign mod4 = forloop.index0 | modulo: 3 %}
+        {% if mod4 == column %}
+          <div class="card">
+            {% assign fallback = site.pics.dirs.medium }} | append: "/" | append: post.image %}
+            <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" 
+            data-src="{{ fallback }}" 
+            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w" 
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" 
+            /> 
+            <!-- <img class='grid-item' src="{{ site.pics.dirs.small }}/{{ post.image }}" alt="{{ post.image }}"> -->
+            <div class="overlay top left right bottom shade-full show-only-on-hover flex flex-column flex-space-between">
+              <div class="flex flex-row flex-space-between">          
+                <h6 class="inverted-colors"><a class="inverted-colors" onclick="plusSlides(-1)" title="Previous"><img class="icon" src="{{ site.pics.dirs.static }}/zoom-in.svg"/></a></h6>
+                <h6 class="inverted-colors"><a class="inverted-colors" href="{{ post.url }}" title="Info"><img class="icon" src="{{ site.pics.dirs.static }}/info.svg"/></a></h6>
+              </div>
+              <h6 id="caption" class="inverted-colors">{{ post.title }}</h6>
+            </div>
+          </div>
+        {% endif %} 
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
