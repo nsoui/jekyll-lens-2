@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<div id="main">
+
+    <section>    
+        <div id="album-header">
+            <h1>{{ page.tag }}</h1>
+            {% assign tag = page.tag %}
+            {% assign quote = site.data.quotes[tag] %}
+            {% if quote != nil %}
+                <blockquote author="{{ quote.author }}">“{{ quote.quote }}”</blockquote>
+                {% if quote.text != nil %}
+                <div class="paragraph">
+                    {{ quote.text | markdownify }}
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    </section>
+
+    
+    {% include grid3.html posts=site.posts %}
+    
+    {% if false %}
+        {% include grid.html posts=page.posts %}
+        {% include grid.html posts=page.posts %}
+        {% include gallery3.html posts=page.posts %}
+    {% endif %}
+    
+</div>
