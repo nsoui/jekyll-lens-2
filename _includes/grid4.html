@@ -1,0 +1,16 @@
+<section class="thumbnails">
+  <div class="grid4">
+    <div class="gallery">
+      {% for post in include.posts %}
+      <div class="gallery-item">
+        <div class="content">
+          {% assign fallback = site.pics.dirs.medium }} | append: "/" | append: post.image %}
+          <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" data-src="{{ fallback }}"
+            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w"
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" />
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
