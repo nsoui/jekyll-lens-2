@@ -23,29 +23,37 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
   {% assign samples= site.posts | sample: 4 %}
   {% include grid.html posts=samples %} -->
 
+
+
   <section id="categories" class="">
     <h1>Select a Category...</h1>
-      <ul class="og-grid">
-
-    {% for category in site.data.quotes %}
-      {% assign categoryName = category[0] %}
-      {% assign tagPosts = site.tags[categoryName] %}
-      {% assign post = tagPosts | sample  %}
-        <li>
-          <article class="thumb">
-            <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="link" tabindex="0">
-              {% assign thumbnail = site.pics.dirs.small | append: "/" | append: post.image %}
-              <img src="{{ thumbnail }}" alt="{{ categoryName }}"  {% imagesize thumbnail:props %}   />
-              <div class="overlay top bottom right left inverted-colors shade shade-scrim-to-top">
-                <h4 class="overlay bottom right left">{{ categoryName }}</h4>
-              </div>
-            </a>
-            
-            
-          </article>
-        </li>
-    {% endfor %}
-
+    <div class="diamond-grid">      
+      <div class="wrapper">
+        {% for category in site.data.quotes %}
+          {% assign categoryName = category[0] %}
+          {% assign tagPosts = site.tags[categoryName] %}
+          {% assign post = tagPosts | sample  %}
+          {% assign thumbnail = site.pics.dirs.small | append: "/" | append: post.image %}
+          <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="tile" style="background-image: url( {{ thumbnail }});">
+            <div  >
+              <div class="overlay top bottom right left inverted-colors shade-full">
+                <h6 class="overlay middle center">{{ categoryName }}</h6>
+              </div> 
+            </div>
+          </a>
+        {% endfor %}
+        {% assign post = site.posts.first  %}
+        {% assign thumbnail = site.pics.dirs.small | append: "/" | append: post.image %}
+          <a href="/all_posts.html" data-position="{{ site.thumbnail_position }}" class="tile" style="background-image: url( {{ thumbnail }});" >
+            <div  >
+              <!-- <img src="{{ thumbnail }}" alt="{{ categoryName }}"  {% imagesize thumbnail:props %}   /> -->
+              <div class="overlay top bottom right left inverted-colors shade-full">
+                <h6 class="overlay middle center">All</h6>
+              </div> 
+            </div>
+          </a>
+      </div>
+    </div>
   </section>
   
   <section id="tags">
@@ -59,7 +67,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
      
     <h1>or browse by tags...</h1>
     <ul class="cloud" role="navigation" aria-label="Webdev tag cloud" data-show-value>
-      <li><a href="/all_posts" data-weight="{{ site.posts.size }}">All</a></li>
+      <li><a href="/all_posts.html" data-weight="{{ site.posts.size }}">All</a></li>
       {% for tag2 in sortedtags reversed %}
         {% assign tag = tag2 | strip | remove: "\n" %}
         {% if tag.size > 0 %}
