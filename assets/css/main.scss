@@ -326,8 +326,14 @@ h6 {
       filter: $svg-filter-inverted;
     }
     .button {
-      box-shadow: inset 0 0 0 2px $inverted-text-color;
       color: $inverted-text-color ;
+    }
+    &.glow {
+      text-shadow: 0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem -0.5rem 0.5rem $inverted-text-color, 0.5rem -0.5rem 0.5rem $inverted-text-color;
+      a, .button {
+        box-shadow: 0 0 0.5rem 0.5rem $inverted-text-color;
+        display: block;
+      }
     }
   }
   
@@ -1561,6 +1567,7 @@ ul.cloud[data-show-value] a::after {
 		h1, h2, h3, h4, h5, h6 , .button, a {
 			color: inherit ;
 		}
+    
 
 		.button {
 			box-shadow: inset 0 0 0 2px $inverted-text-color;

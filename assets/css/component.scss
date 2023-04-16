@@ -484,8 +484,15 @@ q {
 			}
 
 			a {
+				border-radius: 8px;
+				box-shadow: 0 0 0.5rem 0.5rem $inverted-text-color;
+				display: block;
+
 				img {
-					padding: 5px;
+					margin: .5rem;
+					width: 1.25rem;
+    				height: 1.25rem;
+					box-shadow: none;
 				}
 			}
 
