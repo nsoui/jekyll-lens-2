@@ -144,3 +144,5 @@ permalink: /posts/:title:output_ext
 #   - jekyll-seo-tag
 plugins:
   - jekyll-image-size
+  - jekyll-sitemap
+  

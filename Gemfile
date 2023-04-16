@@ -36,6 +36,7 @@ group :jekyll_plugins do
   # gem "kramdown"
   gem 'jekyll-tagging'
   gem 'jekyll-image-size'
+  gem 'jekyll-sitemap'
   # gem "jekyll-sass-converter", github: 'jekyll/jekyll-sass-converter'
   # gem "sass-embedded"
 end
