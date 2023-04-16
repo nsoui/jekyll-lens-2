@@ -1,11 +1,10 @@
 ---
 layout: default
-hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-dubai.jpg
 ---
 
 <!-- Main -->
 <div id="main">
-  
+
 <section class="hero">
   <div id="welcome" class="hero-inner">
     {% assign logo= site.pics.dirs.static | append: "/logo.webp" %}
@@ -33,7 +32,7 @@ hero: /gallery/large/2021-01-17-224300-marina-sklyline-behnid-the-springs-lake-d
           {% assign categoryName = category[0] %}
           {% assign tagPosts = site.tags[categoryName] %}
           {% assign post = tagPosts | sample  %}
-          {% assign thumbnail = site.pics.dirs.small | append: "/" | append: post.image %}
+          {% assign thumbnail = site.pics.dirs.medium | append: "/" | append: post.image %}
           <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="tile" style="background-image: url( {{ thumbnail }});">
             <div  >
               <div class="overlay top bottom right left inverted-colors shade-full">
