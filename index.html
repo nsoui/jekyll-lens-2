@@ -10,10 +10,13 @@ layout: default
     {% assign logo= site.pics.dirs.static | append: "/logo.webp" %}
     <img src="{{logo }}" alt="logo"   {% imagesize logo:props %}   />
     <div class="buttons">
-      <a href="#categories" class="button inverted-colors">Categories</a>
-      <a href="#tags" class="button inverted-colors">Tags</a>
+      <h4 class="inverted-colors glow">
+        <a href="#categories" class="button">Categories</a>
+      </h4>
+      <h4 class="inverted-colors glow">
+        <a href="#tags" class="button">Tags</a>
+      </h4>
     </div>
-  </div>
   
 </section>
 
