@@ -306,9 +306,11 @@ h6 {
   margin: 0 0 0 0;
   text-transform: uppercase;
 
-  a {
+  a, .button {
     color: inherit;
     text-decoration: none;
+    border-radius: 5px;
+    padding: 0.15rem;
   }
   .icon {
     width: 1.5rem;
@@ -318,9 +320,7 @@ h6 {
     &.inverted-colors {
       filter: $svg-filter-inverted;
     }
-    &.round {
-      border-radius: 50%;
-    }
+    
   }
 
   &.inverted-colors {
