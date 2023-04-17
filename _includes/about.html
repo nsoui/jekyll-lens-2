@@ -2,7 +2,7 @@
     <div>
         <section>
             {% assign image = site.pics.dirs.static | append: "/me.jpg" %}
-            <img class="lazy" src="{{ site.pics.dirs.static }}/spinner.svg"  data-src="{{ image }}" data-srcset="" alt="me" {% imagesize image:props %} />
+            <img class="lazy" src="{{ site.pics.dirs.static }}/spinner.svg"  data-src="{{ image }}" data-srcset="" alt="me" {% imagesize image:width %} />
         </section>
     </div>
     <div>
