@@ -38,8 +38,8 @@ layout: default
           {% assign thumbnail = site.pics.dirs.medium | append: "/" | append: post.image %}
           <a href="/tag/{{ categoryName | slugify }}" data-position="{{ site.thumbnail_position }}" class="tile" style="background-image: url( {{ thumbnail }});">
             <div  >
-              <div class="overlay top bottom right left inverted-colors shade-full">
-                <h6 class="overlay middle center">{{ categoryName }}</h6>
+              <div class="overlay top bottom right left shade-full">
+                <h6 class="overlay middle center inverted-colors glow ">{{ categoryName }}</h6>
               </div> 
             </div>
           </a>
@@ -49,8 +49,8 @@ layout: default
           <a href="/all_posts.html" data-position="{{ site.thumbnail_position }}" class="tile" style="background-image: url( {{ thumbnail }});" >
             <div  >
               <!-- <img src="{{ thumbnail }}" alt="{{ categoryName }}"  {% imagesize thumbnail:props %}   /> -->
-              <div class="overlay top bottom right left inverted-colors shade-full">
-                <h6 class="overlay middle center">All</h6>
+              <div class="overlay top bottom right left shade-full">
+                <h6 class="overlay middle center inverted-colors glow">All</h6>
               </div> 
             </div>
           </a>
