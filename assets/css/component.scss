@@ -584,7 +584,9 @@ q {
 		  }
 		  &:hover {
 			img {
-			  filter: blur(4px);
+			  //filter: blur(4px);
+			  filter: brightness(120%);
+			  transform: scale(1.2);
 			}
 			a {
 			  opacity: 1;
