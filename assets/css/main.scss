@@ -332,7 +332,7 @@ h6 {
       color: $inverted-text-color ;
     }
     &.glow {
-      text-shadow: 0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem -0.5rem 0.5rem $inverted-text-color, 0.5rem -0.5rem 0.5rem $inverted-text-color;
+      text-shadow: 0 0 0.25rem black, 0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem -0.5rem 0.5rem $inverted-text-color, 0.5rem -0.5rem 0.5rem $inverted-text-color;
       a, .button {
         box-shadow: 0 0 0.75rem 0.25rem $inverted-text-color;
         display: block;
