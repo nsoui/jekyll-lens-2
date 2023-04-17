@@ -1224,7 +1224,7 @@ body.loading #header {
       background-image: url('{{ site.pics.dirs.small }}/{{ site.pics.static.hero }}');
     }
     background-size: cover;
-    background-position: top left;
+    background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 
