@@ -318,6 +318,9 @@ h6 {
     &.inverted-colors {
       filter: $svg-filter-inverted;
     }
+    &.round {
+      border-radius: 50%;
+    }
   }
 
   &.inverted-colors {
@@ -331,7 +334,7 @@ h6 {
     &.glow {
       text-shadow: 0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem 0.5rem 0.5rem $inverted-text-color, -0.5rem -0.5rem 0.5rem $inverted-text-color, 0.5rem -0.5rem 0.5rem $inverted-text-color;
       a, .button {
-        box-shadow: 0 0 0.5rem 0.5rem $inverted-text-color;
+        box-shadow: 0 0 0.75rem 0.25rem $inverted-text-color;
         display: block;
       }
     }
@@ -1590,5 +1593,8 @@ ul.cloud[data-show-value] a::after {
   opacity: 0%;
   &:hover{
     opacity: 100%;
+  }
+  @media (hover: none) {
+    opacity: 100%; // Always visible on devices without hover capability
   }
 }

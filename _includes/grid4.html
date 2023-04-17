@@ -1,16 +1,59 @@
+{% assign nbPosts = include.posts | size %}
 <section class="thumbnails">
   <div class="grid4">
-    <div class="gallery">
+    <div id="gallery">
       {% for post in include.posts %}
-      <div class="gallery-item">
-        <div class="content">
+        <div id="thumb-{{ forloop.index }}">
           {% assign fallback = site.pics.dirs.medium }} | append: "/" | append: post.image %}
-          <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" data-src="{{ fallback }}"
-            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w"
-            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" />
+            <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" 
+            data-src="{{ fallback }}" 
+            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w" 
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" 
+            /> 
+            <a href="#lightbox-{{ forloop.index }}"></a>
+            <!-- <div class="overlay top left right bottom show-only-on-hover flex flex-column flex-space-between">
+              <div class="flex flex-row flex-space-between">          
+                <h6 class="inverted-colors glow"><a class="inverted-colors" href="#lightbox-{{ forloop.index }}"><img class="icon" src="{{ site.pics.dirs.static }}/zoom-in.svg"/></a></h6>
+                <h6 class="inverted-colors glow"><a class="inverted-colors" href="{{ post.url }}" title="Info"><img class="icon" src="{{ site.pics.dirs.static }}/info.svg"/></a></h6>
+              </div>
+              <h6 class="caption" class="inverted-colors glow">{{ post.title }}</h6>
+            </div> -->
         </div>
-      </div>
       {% endfor %}
     </div>
+    {% for post in include.posts %}
+      <div class="lightbox" id="lightbox-{{ forloop.index }}">
+        <div class="content">
+          {% assign fallback = site.pics.dirs.medium }} | append: "/" | append: post.image %}
+            <img src="{{ site.pics.dirs.static }}/spinner.svg" class="lazy" 
+            data-src="{{ fallback }}" 
+            data-srcset="{{ site.pics.dirs.thumb }}/{{ post.image }} 342w,  {{ site.pics.dirs.medium }}/{{ post.image }} 600w, {{ site.pics.dirs.large }}/{{ post.image }} 1200w" 
+            sizes="(max-width: 342px) 342px, (max-width: 600px) 600px, 1200px" 
+            /> 
+            <!-- <div class="title"><h6 class="inverted-colors glow">{{ post.title }}</h6></div>
+            <a class="close" href="#thumb-{{ forloop.index }}"></a>
+            <a class="info inverted-colors glow" href="{{ post.url }}" title="Info" target="_blank"><img class="icon" src="{{ site.pics.dirs.static }}/info.svg"/></a> -->
+
+            <div class="overlay top left right flex flex-row flex-space-between shade-scrim-to-bottom ">
+              <h5 class="inverted-colors glow"><a class="inverted-colors" href="{{ post.url }}" title="Info"><img class="icon round" src="{{ site.pics.dirs.static }}/info.svg"/></a></h5>
+              <div class="flex flex-row">
+                {% if forloop.index > 1 %}
+                  {% assign prev = forloop.index | minus: 1 %}
+                  <h5 class="inverted-colors glow"><a class="inverted-colors" href="#lightbox-{{ prev }}" title="Prev."><img class="icon" src="{{ site.pics.dirs.static }}/left.svg"/></a></h5>
+                {% endif %}
+                {% if forloop.index <  nbPosts %}
+                  {% assign next = forloop.index | plus: 1 %}
+                  <h5 class="inverted-colors glow"><a class="inverted-colors" href="#lightbox-{{ next }}" title="Next"><img class="icon" src="{{ site.pics.dirs.static }}/right.svg"/></a></h5>
+                {% endif %}
+              </div>
+              <h5 class="inverted-colors glow"><a class="inverted-colors" href="#thumb-{{ forloop.index }}"><img class="icon" src="{{ site.pics.dirs.static }}/close.svg"/></a></h5>
+            </div>
+            <div class="overlay bottom left right flex flex-row shade-scrim-to-top">
+              <h5 class="inverted-colors glow">{{ post.title }}</h5>
+            </div>
+            
+        </div>
+      </div>
+    {% endfor %}
   </div>
 </section>
