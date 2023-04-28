@@ -131,6 +131,7 @@ exclude:
   - LICENSE
   - _build
   - _site
+  - scripts
 
 # Tags pages 
 tag_page_layout: tag_page
