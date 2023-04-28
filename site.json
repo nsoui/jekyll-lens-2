@@ -11,7 +11,13 @@ permalink: /api/posts
             "url": "{{ post.url }}",
             "picture"   : "{{ post.image }}",
             "country"   : "{{ post.country }}",
-            "city"      : "{{ post.city }}"
+            "city"      : "{{ post.city }}",
+            "camera"   : "{{ post.camera }}",
+            "lens"   : "{{ post.lens }}",
+            "focallength"   : "{{ post.focallength }}",
+            "iso"   : "{{ post.iso }}",
+            "fstop"   : "{{ post.fstop }}",
+            "exposure"   : "{{ post.exposure }}"
         }
         {% unless forloop.last %},{% endunless %}
     {% endfor %}
